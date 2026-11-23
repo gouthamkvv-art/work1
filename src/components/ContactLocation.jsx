@@ -10,32 +10,32 @@ export default function ContactLocation({ onOpenChatbot }) {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="contact" className="py-16 sm:py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
       <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
             <MapPin className="w-3.5 h-3.5 text-[#C5A869]" />
             <span>Connect with Royal Prince</span>
           </div>
           
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
             Contact &amp; Location
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
           
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             Visit our administrative facility on Pala Road or reach out directly. Managing Director Johnykutty P.V. and our event logistics team are ready to assist with menu consultations, venue recce, and bookings.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           {/* Left Column: Contact Cards */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-5 sm:space-y-6">
             {/* Primary Address Card */}
-            <div className="bg-[#0D1412] rounded-xl p-6 sm:p-8 border border-[#C5A869]/25 shadow-xl">
+            <div className="bg-[#0D1412] rounded-xl p-5 sm:p-8 border border-[#C5A869]/25 shadow-xl">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#070A09] border border-[#C5A869]/50 flex items-center justify-center text-[#C5A869] shrink-0 shadow-md">
                   <MapPin className="w-6 h-6" />

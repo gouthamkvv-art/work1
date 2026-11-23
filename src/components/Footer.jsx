@@ -12,7 +12,7 @@ export default function Footer({ onOpenQuoteModal, onOpenChatbot }) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050807] text-[#FDFBF7] border-t-2 border-[#C5A869]/30 pt-16 pb-10 relative overflow-hidden">
+    <footer className="bg-[#050807] text-[#FDFBF7] border-t-2 border-[#C5A869]/30 pt-14 pb-20 sm:pb-12 relative overflow-hidden">
       {/* Decorative Crown Backdrop */}
       <div className="absolute top-10 right-10 text-[#C5A869]/5 pointer-events-none">
         <Crown className="w-80 h-80" />
