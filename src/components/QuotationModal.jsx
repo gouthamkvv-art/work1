@@ -31,38 +31,38 @@ export default function QuotationModal({ isOpen, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-xl w-full bg-[#0D1412] border-2 border-[#C5A869] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] p-6 sm:p-8 text-[#FDFBF7] my-8"
+        className="relative max-w-xl w-full bg-[#0D1412] border-2 border-[#C5A869] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] p-5 sm:p-8 text-[#FDFBF7] my-auto max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close Modal"
-          className="absolute top-4 right-4 text-[#CBD5D0] hover:text-white transition-colors"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-8 h-8 rounded-full bg-black/60 hover:bg-[#C5A869] text-[#CBD5D0] hover:text-[#070A09] flex items-center justify-center transition-colors cursor-pointer z-10"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#070A09] border border-[#C5A869] mb-3 shadow-md overflow-hidden">
+        <div className="text-center mb-5 sm:mb-6 pr-6 sm:pr-0">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#070A09] border border-[#C5A869] mb-2 sm:mb-3 shadow-md overflow-hidden">
             <img src="/logo.png" alt="Royal Prince Catering Logo" className="w-full h-full object-contain rounded-full" />
           </div>
-          <h3 className="font-['Cinzel'] text-xl sm:text-2xl font-bold text-[#FDFBF7]">
+          <h3 className="font-['Cinzel'] text-lg sm:text-2xl font-bold text-[#FDFBF7]">
             Request An Official Quotation
           </h3>
-          <p className="text-xs text-[#E8D5A3] uppercase tracking-widest mt-1">
+          <p className="text-[10px] sm:text-xs text-[#E8D5A3] uppercase tracking-widest mt-0.5 sm:mt-1">
             Royal Prince Caters &amp; Event Management • Pala
           </p>
         </div>
 
-        <form onSubmit={handleSendToWhatsApp} className="space-y-4 text-xs">
+        <form onSubmit={handleSendToWhatsApp} className="space-y-3.5 sm:space-y-4 text-xs">
           {/* Name & Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Your Full Name *</label>
               <input
@@ -71,7 +71,7 @@ export default function QuotationModal({ isOpen, onClose }) {
                 placeholder="e.g., Mathew Kurian"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               />
             </div>
             <div>
@@ -82,19 +82,19 @@ export default function QuotationModal({ isOpen, onClose }) {
                 placeholder="e.g., +91 94475 00000"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               />
             </div>
           </div>
 
           {/* Event Type & Date */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Event Type</label>
               <select
                 value={formData.eventType}
                 onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               >
                 <option value="Grand Wedding Catering">Grand Wedding Catering</option>
                 <option value="Traditional Kerala Sadhya">Traditional Kerala Sadhya</option>
@@ -111,13 +111,13 @@ export default function QuotationModal({ isOpen, onClose }) {
                 required
                 value={formData.eventDate}
                 onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               />
             </div>
           </div>
 
           {/* Guest Count Slider */}
-          <div className="bg-[#070A09] p-4 rounded-xl border border-[#C5A869]/25 shadow-inner">
+          <div className="bg-[#070A09] p-3 sm:p-4 rounded-xl border border-[#C5A869]/25 shadow-inner">
             <div className="flex items-center justify-between mb-1.5">
               <label className="text-[11px] uppercase font-bold text-[#C5A869] flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5" />
@@ -145,7 +145,7 @@ export default function QuotationModal({ isOpen, onClose }) {
           </div>
 
           {/* Location & Food Preference */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Event Location / Town</label>
               <input
@@ -153,7 +153,7 @@ export default function QuotationModal({ isOpen, onClose }) {
                 placeholder="e.g., Pala, Kidangoor, Kottayam"
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               />
             </div>
             <div>
@@ -161,7 +161,7 @@ export default function QuotationModal({ isOpen, onClose }) {
               <select
                 value={formData.foodPreference}
                 onChange={(e) => setFormData({ ...formData, foodPreference: e.target.value })}
-                className="w-full px-3 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
               >
                 <option value="Both Veg & Non-Veg Multi-Course">Both Veg &amp; Non-Veg Multi-Course</option>
                 <option value="Traditional 28-Dish Kerala Sadhya">Traditional 28-Dish Kerala Sadhya</option>

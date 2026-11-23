@@ -5,10 +5,10 @@ import { INSTAGRAM_HIGHLIGHTS, COMPANY_INFO } from '../data/siteData';
 
 export default function InstagramFeed() {
   return (
-    <section className="py-24 bg-[#070A09] text-[#FDFBF7] relative border-b border-[#C5A869]/20">
+    <section className="py-16 sm:py-24 bg-[#070A09] text-[#FDFBF7] relative border-b border-[#C5A869]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-10 sm:mb-12 gap-6 text-center md:text-left">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A869] font-semibold mb-2">
               <Instagram className="w-4 h-4 text-[#C5A869]" />
@@ -26,7 +26,7 @@ export default function InstagramFeed() {
             href={COMPANY_INFO.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-[#0D1412] hover:bg-[#121C18] text-[#E8D5A3] border border-[#C5A869]/50 rounded-lg text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 shadow hover:scale-105 shrink-0"
+            className="w-full sm:w-auto px-6 py-3 bg-[#0D1412] hover:bg-[#121C18] text-[#E8D5A3] border border-[#C5A869]/50 rounded-lg text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow hover:scale-105 shrink-0"
           >
             <Instagram className="w-4 h-4 text-[#C5A869]" />
             <span>Follow @royalprincecatering</span>
@@ -35,7 +35,7 @@ export default function InstagramFeed() {
         </div>
 
         {/* 4 Instagram Post Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {INSTAGRAM_HIGHLIGHTS.map((post) => (
             <a
               key={post.id}
@@ -44,7 +44,7 @@ export default function InstagramFeed() {
               rel="noopener noreferrer"
               className="bg-[#0D1412] rounded-xl overflow-hidden border border-[#C5A869]/20 hover:border-[#C5A869] shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.95)] transition-all duration-300 flex flex-col group"
             >
-              <div className="relative h-60 overflow-hidden">
+              <div className="relative h-52 sm:h-60 overflow-hidden">
                 <img
                   src={post.image}
                   alt="Instagram post from Royal Prince Catering"

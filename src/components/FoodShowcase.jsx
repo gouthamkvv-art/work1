@@ -28,29 +28,29 @@ export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
   };
 
   return (
-    <section id="food-collection" className="py-28 bg-[#090E0C] text-[#CBD5D0] relative border-b border-[#C5A869]/20">
+    <section id="food-collection" className="py-16 sm:py-28 bg-[#090E0C] text-[#CBD5D0] relative border-b border-[#C5A869]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A869] font-semibold mb-3">
             <UtensilsCrossed className="w-4 h-4 text-[#C5A869]" />
             <span>Signature Gastronomy</span>
           </div>
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-3 sm:mb-4">
             The Signature Food Collection
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             An editorial showcase of authentic Central Kerala culinary masterpieces, prepared with cold-pressed oils, freshly roasted whole spices, and generational craft.
           </p>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          {/* Category Filter Pills with Horizontal Swipe */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 -mx-4 sm:mx-auto sm:flex-wrap sm:justify-center justify-start mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shrink-0 whitespace-nowrap ${
                   selectedCategory === cat
                     ? 'bg-gradient-to-r from-[#DFCA96] to-[#C5A869] text-[#070A09] font-bold shadow-[0_0_15px_rgba(197,168,105,0.3)] scale-105'
                     : 'bg-[#0D1412] text-[#CBD5D0] hover:text-[#C5A869] hover:bg-[#121C18] border border-[#C5A869]/20'
@@ -63,7 +63,7 @@ export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
         </div>
 
         {/* Editorial Magazine Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredItems.map((dish) => (
             <article
               key={dish.id}
@@ -71,7 +71,7 @@ export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
             >
               {/* Dish Visual Banner */}
               <div 
-                className="relative h-64 overflow-hidden cursor-pointer"
+                className="relative h-56 sm:h-64 overflow-hidden cursor-pointer"
                 onClick={() => onSelectImage({
                   title: dish.name,
                   category: dish.category,

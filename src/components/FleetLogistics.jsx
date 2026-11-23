@@ -11,37 +11,37 @@ export default function FleetLogistics({ onOpenChatbot }) {
   };
 
   return (
-    <section id="fleet" className="py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="fleet" className="py-16 sm:py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-[#C5A869]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
             <Truck className="w-3.5 h-3.5 text-[#C5A869]" />
             <span>State-of-the-Art Logistics</span>
           </div>
 
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
             {FLEET_INFO.title}
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-5" />
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-5" />
 
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             &ldquo;From our central kitchen in Pala to your reception banquet, our temperature-insulated vehicle fleet guarantees hot, sanitary, and punctual food service.&rdquo;
           </p>
         </div>
 
         {/* Fleet Metrics Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-16 max-w-5xl mx-auto">
           {FLEET_INFO.stats.map((stat, i) => (
-            <div key={i} className="bg-[#0D1412] rounded-xl p-5 border border-[#C5A869]/25 text-center shadow-lg hover:border-[#C5A869]/60 transition-colors">
-              <span className="font-['Cinzel'] text-2xl sm:text-3xl font-bold text-[#E8D5A3] block mb-1">
+            <div key={i} className="bg-[#0D1412] rounded-xl p-4 sm:p-5 border border-[#C5A869]/25 text-center shadow-lg hover:border-[#C5A869]/60 transition-colors">
+              <span className="font-['Cinzel'] text-xl sm:text-3xl font-bold text-[#E8D5A3] block mb-0.5 sm:mb-1">
                 {stat.value}
               </span>
-              <span className="text-[10px] sm:text-xs text-[#8A9C94] uppercase tracking-wider font-semibold">
+              <span className="text-[9px] sm:text-xs text-[#8A9C94] uppercase tracking-wider font-semibold">
                 {stat.label}
               </span>
             </div>
@@ -49,14 +49,14 @@ export default function FleetLogistics({ onOpenChatbot }) {
         </div>
 
         {/* Vehicle Showcase Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {FLEET_INFO.vehicles.map((v) => (
             <div
               key={v.id}
               className="bg-[#0D1412] rounded-xl overflow-hidden border border-[#C5A869]/25 hover:border-[#C5A869] shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.8)] transition-all duration-300 flex flex-col group"
             >
               {/* Vehicle Photograph */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-52 sm:h-64 overflow-hidden">
                 <img
                   src={v.image}
                   alt={v.title}
@@ -65,22 +65,22 @@ export default function FleetLogistics({ onOpenChatbot }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1412] via-black/40 to-transparent" />
 
                 {/* Role Pill */}
-                <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#070A09]/90 border border-[#C5A869]/40 text-[#E8D5A3] text-[10px] font-bold uppercase tracking-wider backdrop-blur-xs">
+                <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded bg-[#070A09]/90 border border-[#C5A869]/40 text-[#E8D5A3] text-[10px] font-bold uppercase tracking-wider backdrop-blur-xs">
                   {v.role}
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4">
+                <div className="absolute bottom-3.5 left-3.5 right-3.5">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#C5A869] block">
                     Capacity Specification
                   </span>
-                  <span className="font-['Cinzel'] text-base font-bold text-[#FDFBF7]">
+                  <span className="font-['Cinzel'] text-sm sm:text-base font-bold text-[#FDFBF7]">
                     {v.capacity}
                   </span>
                 </div>
               </div>
 
               {/* Vehicle Information */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-['Cinzel'] text-xl font-bold text-[#FDFBF7] group-hover:text-[#E8D5A3] transition-colors mb-3">
                     {v.title}

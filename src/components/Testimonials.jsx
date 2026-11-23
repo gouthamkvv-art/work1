@@ -16,49 +16,49 @@ export default function Testimonials() {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="testimonials" className="py-28 bg-[#070A09] text-[#CBD5D0] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="testimonials" className="py-16 sm:py-28 bg-[#070A09] text-[#CBD5D0] relative overflow-hidden border-b border-[#C5A869]/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A869] font-semibold mb-3">
             <Quote className="w-4 h-4 text-[#C5A869]" />
             <span>Words of Appreciation</span>
           </div>
           
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-3 sm:mb-4">
             Guest &amp; Client Testimonials
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
           
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             The joy of our client families in Pala, Kidangoor, Kottayam, and across Kerala is our crowning achievement.
           </p>
         </div>
 
         {/* Carousel Showcase */}
-        <div className="relative bg-[#0D1412] text-[#FDFBF7] rounded-2xl p-8 sm:p-14 border border-[#C5A869]/30 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-w-4xl mx-auto">
+        <div className="relative bg-[#0D1412] text-[#FDFBF7] rounded-2xl p-6 sm:p-14 border border-[#C5A869]/30 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-w-4xl mx-auto">
           {/* Watermark Quote Icon */}
           <div className="absolute top-6 right-8 text-[#C5A869]/8 pointer-events-none">
-            <Quote className="w-32 h-32" />
+            <Quote className="w-24 h-24 sm:w-32 sm:h-32" />
           </div>
 
           <div className="relative z-10">
             {/* Stars */}
-            <div className="flex items-center gap-1.5 mb-6">
+            <div className="flex items-center gap-1.5 mb-4 sm:mb-6">
               {[...Array(current.rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-[#C5A869] fill-[#C5A869]" />
+                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A869] fill-[#C5A869]" />
               ))}
             </div>
 
             {/* Testimonial Quote */}
-            <p className="font-['Cormorant_Garamond'] text-xl sm:text-2xl md:text-3xl italic text-[#FDFBF7] leading-relaxed mb-8">
+            <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl md:text-3xl italic text-[#FDFBF7] leading-relaxed mb-6 sm:mb-8">
               &ldquo;{current.review}&rdquo;
             </p>
 
             {/* Author Information */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#C5A869]/20 pt-6 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#C5A869]/20 pt-5 sm:pt-6 gap-4">
               <div>
-                <h3 className="font-['Cinzel'] text-lg font-bold text-[#E8D5A3]">
+                <h3 className="font-['Cinzel'] text-base sm:text-lg font-bold text-[#E8D5A3]">
                   {current.name}
                 </h3>
                 <div className="flex items-center gap-2 text-xs text-[#8A9C94] mt-0.5">

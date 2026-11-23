@@ -45,35 +45,35 @@ export default function Gallery({ onSelectImage }) {
   };
 
   return (
-    <section id="gallery" className="py-28 bg-[#070A09] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="gallery" className="py-16 sm:py-28 bg-[#070A09] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#C5A869]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
             <Instagram className="w-3.5 h-3.5 text-[#C5A869]" />
             <span>@royalprincecatering Moments</span>
           </div>
           
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
             Our Work &amp; Event Gallery
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
           
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             Glimpses of actual catering feasts, authentic Kerala sadhyas, vehicle dispatch, and bespoke event arrangements delivered across Kottayam, Pala, and Central Kerala.
           </p>
 
           {/* Gallery Category Filter & Owner Add Photo Button */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 -mx-4 sm:mx-auto sm:flex-wrap sm:justify-center justify-start mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeFilter === cat
                     ? 'bg-gradient-to-r from-[#DFCA96] to-[#C5A869] text-[#070A09] font-bold shadow-[0_0_15px_rgba(197,168,105,0.3)] scale-105'
                     : 'bg-[#0D1412] text-[#CBD5D0] hover:text-[#C5A869] border border-[#C5A869]/20'
@@ -86,7 +86,7 @@ export default function Gallery({ onSelectImage }) {
             {/* Quick Owner Add Photo Button */}
             <button
               onClick={() => setShowAddModal(true)}
-              className="px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#050807] text-[#E8D5A3] hover:bg-[#C5A869] hover:text-[#070A09] border border-[#C5A869]/50 transition-colors flex items-center gap-1.5 cursor-pointer ml-1"
+              className="px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#050807] text-[#E8D5A3] hover:bg-[#C5A869] hover:text-[#070A09] border border-[#C5A869]/50 transition-colors flex items-center gap-1.5 cursor-pointer ml-1 shrink-0 whitespace-nowrap"
               title="Add or preview a new event photo"
             >
               <PlusCircle className="w-3.5 h-3.5" />
@@ -219,7 +219,7 @@ export default function Gallery({ onSelectImage }) {
                   placeholder="e.g., Grand Church Wedding Banquet"
                   value={newPhoto.title}
                   onChange={(e) => setNewPhoto({ ...newPhoto, title: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-3 py-2 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export default function Gallery({ onSelectImage }) {
                 <select
                   value={newPhoto.category}
                   onChange={(e) => setNewPhoto({ ...newPhoto, category: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-3 py-2 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
                 >
                   <option value="Wedding Catering">Wedding Catering</option>
                   <option value="Kerala Sadhya">Kerala Sadhya</option>
@@ -247,7 +247,7 @@ export default function Gallery({ onSelectImage }) {
                   placeholder="https://example.com/photo.jpg or Instagram CDN URL"
                   value={newPhoto.image}
                   onChange={(e) => setNewPhoto({ ...newPhoto, image: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-3 py-2 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export default function Gallery({ onSelectImage }) {
                   placeholder="e.g., Pala, Kottayam"
                   value={newPhoto.location}
                   onChange={(e) => setNewPhoto({ ...newPhoto, location: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-3 py-2 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/40 text-white focus:outline-none focus:border-[#C5A869]"
                 />
               </div>
 

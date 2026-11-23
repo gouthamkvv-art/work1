@@ -81,7 +81,7 @@ export default function EnquiryBooking() {
   };
 
   return (
-    <section id="enquiry" className="py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="enquiry" className="py-16 sm:py-28 bg-[#090E0C] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
       {/* Decorative Ornaments */}
       <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#C5A869]/10 rounded-full blur-3xl pointer-events-none" />
@@ -89,26 +89,26 @@ export default function EnquiryBooking() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
             <Crown className="w-3.5 h-3.5 text-[#C5A869]" />
             <span>Plan Your Celebration</span>
           </div>
           
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
             Customer Enquiry &amp; Quotation
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
           
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             Fill in your celebration details below. Our management team will prepare a tailored quotation and menu package directly on WhatsApp (7012230764).
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Hospitality Guarantee & Contact Quick Points */}
-          <div className="lg:col-span-5 bg-[#0D1412] rounded-xl p-8 border border-[#C5A869]/25 shadow-2xl">
-            <h3 className="font-['Cinzel'] text-xl font-bold text-[#E8D5A3] mb-4">
+          <div className="lg:col-span-5 bg-[#0D1412] rounded-xl p-5 sm:p-8 border border-[#C5A869]/25 shadow-2xl">
+            <h3 className="font-['Cinzel'] text-lg sm:text-xl font-bold text-[#E8D5A3] mb-3 sm:mb-4">
               Royal Prince Booking Promise
             </h3>
             
@@ -167,9 +167,9 @@ export default function EnquiryBooking() {
           </div>
 
           {/* Right Column: Interactive Form */}
-          <div className="lg:col-span-7 bg-[#0D1412] rounded-xl p-8 sm:p-10 border border-[#C5A869]/30 shadow-2xl relative">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="lg:col-span-7 bg-[#0D1412] rounded-xl p-5 sm:p-8 md:p-10 border border-[#C5A869]/30 shadow-2xl relative">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 {/* 1. Full Name */}
                 <div>
                   <label className="block text-xs uppercase font-bold tracking-wider text-[#C5A869] mb-1.5 flex items-center gap-1.5">
@@ -181,7 +181,7 @@ export default function EnquiryBooking() {
                     placeholder="e.g., Antony Joseph"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-base sm:text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
                       errors.fullName ? 'border-red-400' : 'border-[#C5A869]/30 focus:border-[#C5A869]'
                     }`}
                   />
@@ -199,7 +199,7 @@ export default function EnquiryBooking() {
                     placeholder="e.g., +91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-base sm:text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
                       errors.phone ? 'border-red-400' : 'border-[#C5A869]/30 focus:border-[#C5A869]'
                     }`}
                   />
@@ -207,7 +207,7 @@ export default function EnquiryBooking() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 {/* 3. Event Type */}
                 <div>
                   <label className="block text-xs uppercase font-bold tracking-wider text-[#C5A869] mb-1.5">
@@ -216,7 +216,7 @@ export default function EnquiryBooking() {
                   <select
                     value={formData.eventType}
                     onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-xs text-white focus:outline-none focus:border-[#C5A869]"
+                    className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
                   >
                     {eventTypes.map((et) => (
                       <option key={et} value={et} className="bg-[#070A09]">{et}</option>
@@ -234,7 +234,7 @@ export default function EnquiryBooking() {
                     type="date"
                     value={formData.eventDate}
                     onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-xs text-white focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-base sm:text-xs text-white focus:outline-none transition-colors ${
                       errors.eventDate ? 'border-red-400' : 'border-[#C5A869]/30 focus:border-[#C5A869]'
                     }`}
                   />
@@ -242,7 +242,7 @@ export default function EnquiryBooking() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 {/* 5. Event Location */}
                 <div>
                   <label className="block text-xs uppercase font-bold tracking-wider text-[#C5A869] mb-1.5 flex items-center gap-1.5">
@@ -254,7 +254,7 @@ export default function EnquiryBooking() {
                     placeholder="e.g., Pala Parish Hall, Kottayam"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-base sm:text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
                       errors.location ? 'border-red-400' : 'border-[#C5A869]/30 focus:border-[#C5A869]'
                     }`}
                   />
@@ -273,7 +273,7 @@ export default function EnquiryBooking() {
                     min="20"
                     value={formData.guestCount}
                     onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#070A09] border text-base sm:text-xs text-white placeholder-white/40 focus:outline-none transition-colors ${
                       errors.guestCount ? 'border-red-400' : 'border-[#C5A869]/30 focus:border-[#C5A869]'
                     }`}
                   />
@@ -290,7 +290,7 @@ export default function EnquiryBooking() {
                 <select
                   value={formData.cateringReq}
                   onChange={(e) => setFormData({ ...formData, cateringReq: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-xs text-white focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
                 >
                   {cateringOptions.map((opt) => (
                     <option key={opt} value={opt} className="bg-[#070A09]">{opt}</option>
@@ -308,7 +308,7 @@ export default function EnquiryBooking() {
                   placeholder="Specify preferences (e.g., special duck roast, live dosa station, floral stage decor, welcome drink bar)..."
                   value={formData.additionalInfo}
                   onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#C5A869]"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#C5A869]"
                 />
               </div>
 

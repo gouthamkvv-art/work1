@@ -19,7 +19,7 @@ export default function Services({ onOpenQuoteModal }) {
   };
 
   return (
-    <section id="services" className="py-28 bg-[#070A09] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
+    <section id="services" className="py-16 sm:py-28 bg-[#070A09] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#C5A869]/8 rounded-full blur-3xl pointer-events-none" />
@@ -27,26 +27,26 @@ export default function Services({ onOpenQuoteModal }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#C5A869]" />
             <span>Haute Hospitality Offerings</span>
           </div>
-          <h2 className="font-['Cinzel'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-4">
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
             Our Catering &amp; Event Services
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-6" />
-          <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
+          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
+          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
             Every celebration has its own soul. We tailor our royal menus, culinary stations, and venue decor to match your unique vision, delivered by our temperature-controlled fleet.
           </p>
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          {/* Filter Pills with Horizontal Swipe on Mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 -mx-4 sm:mx-auto sm:flex-wrap sm:justify-center justify-start mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeCategory === cat
                     ? 'bg-gradient-to-r from-[#DFCA96] to-[#C5A869] text-[#070A09] font-bold shadow-[0_0_15px_rgba(197,168,105,0.3)] scale-105'
                     : 'bg-[#0D1412] text-[#CBD5D0] hover:text-[#C5A869] hover:bg-[#121C18] border border-[#C5A869]/20'
@@ -59,14 +59,14 @@ export default function Services({ onOpenQuoteModal }) {
         </div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {filteredServices.map((service) => (
             <div
               key={service.id}
               className="bg-[#0D1412] rounded-xl overflow-hidden border border-[#C5A869]/20 hover:border-[#C5A869] shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
             >
               {/* Service Photograph with Overlay */}
-              <div className="relative h-60 overflow-hidden">
+              <div className="relative h-52 sm:h-60 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -81,7 +81,7 @@ export default function Services({ onOpenQuoteModal }) {
               </div>
 
               {/* Card Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-['Cinzel'] text-lg font-bold text-[#FDFBF7] group-hover:text-[#E8D5A3] transition-colors mb-2 leading-snug">
                     {service.title}
