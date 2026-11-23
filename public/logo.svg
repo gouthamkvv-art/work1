@@ -1,0 +1,31 @@
+<svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Gold Laurel & Decorative Rings -->
+  <circle cx="80" cy="80" r="76" stroke="#D6B56D" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="80" cy="80" r="71" stroke="#D6B56D" stroke-width="1.8"/>
+  <circle cx="80" cy="80" r="66" fill="#04261F" stroke="#D6B56D" stroke-width="0.8"/>
+
+  <!-- Heraldic Shield -->
+  <path d="M80 32 L108 44 C108 82 80 106 80 114 C80 106 52 82 52 44 Z" fill="#073D32" stroke="#D6B56D" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Inner Shield Inset Line -->
+  <path d="M80 38 L102 48 C102 78 80 98 80 106 C80 98 58 78 58 48 Z" stroke="#F2DC9B" stroke-width="0.8" stroke-dasharray="2 2" fill="none"/>
+
+  <!-- 5-Point Imperial Crown -->
+  <path d="M63 56 L67 72 H93 L97 56 L86 64 L80 50 L74 64 Z" fill="#D6B56D"/>
+  <circle cx="63" cy="54" r="2" fill="#F2DC9B"/>
+  <circle cx="80" cy="48" r="2.5" fill="#F2DC9B"/>
+  <circle cx="97" cy="54" r="2" fill="#F2DC9B"/>
+  <circle cx="74" cy="62" r="1.5" fill="#073D32"/>
+  <circle cx="86" cy="62" r="1.5" fill="#073D32"/>
+
+  <!-- Monogram Text RPC -->
+  <text x="80" y="92" text-anchor="middle" fill="#F8F4E9" font-size="16" font-weight="900" font-family="'Cinzel', serif" letter-spacing="2">RPC</text>
+
+  <!-- Crown Stars / Gems -->
+  <circle cx="80" cy="101" r="2" fill="#D6B56D"/>
+  <path d="M74 101 H70 M86 101 H90" stroke="#D6B56D" stroke-width="1"/>
+
+  <!-- Lower Banner Ribbon Arch -->
+  <path d="M40 126 Q80 142 120 126" stroke="#D6B56D" stroke-width="1.5" fill="none"/>
+  <text x="80" y="138" text-anchor="middle" fill="#D6B56D" font-size="8.5" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="2.5">PALA • KERALA</text>
+</svg>

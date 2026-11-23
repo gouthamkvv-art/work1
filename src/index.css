@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian-deep: #070A09;
+  --color-obsidian-surface: #0D1412;
+  --color-obsidian-card: #121C18;
+  --color-obsidian-card-hover: #17241F;
+  --color-obsidian-border: rgba(197, 168, 105, 0.22);
+  
+  --color-gold-champagne: #C5A869;
+  --color-gold-light: #E8D5A3;
+  --color-gold-metallic: #DFCA96;
+  --color-gold-bronze: #9E7D3B;
+  --color-gold-dim: #7D6430;
+
+  --color-emerald-deep: #091713;
+  --color-emerald-accent: #0E2921;
+
+  --color-pearl-white: #FDFBF7;
+  --color-pearl-muted: #CBD5D0;
+  --color-sage-subtle: #8A9C94;
+
+  --font-royal: 'Cinzel', serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: #CBD5D0;
+    background-color: #070A09;
+  }
+}
+
+/* Ultra-luxury custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #070A09;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A869;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8D5A3;
+}
+
+/* Ultra-Luxury Gold Metallic Gradients */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #F4E4BA 0%, #C5A869 50%, #9E7D3B 100%);
+}
+
+.bg-gold-metallic {
+  background: linear-gradient(135deg, #FFF1CD 0%, #DFCA96 35%, #C5A869 70%, #9E7D3B 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FDFBF7 0%, #E8D5A3 40%, #C5A869 75%, #9E7D3B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-pure {
+  background: linear-gradient(135deg, #FFF5D6 0%, #DFCA96 50%, #C5A869 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-hairline {
+  border-color: rgba(197, 168, 105, 0.22);
+}
+
+.border-gold-glow {
+  border-color: rgba(197, 168, 105, 0.65);
+  box-shadow: 0 0 25px rgba(197, 168, 105, 0.18);
+}
+
+.shadow-ultra-luxury {
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(197, 168, 105, 0.08);
+}
+
+.shadow-gold-subtle {
+  box-shadow: 0 10px 30px -5px rgba(197, 168, 105, 0.22);
+}
+
+/* Subtle gold diamond stipple pattern */
+.bg-royal-pattern {
+  background-image: radial-gradient(rgba(197, 168, 105, 0.1) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Glassmorphism panel */
+.glass-obsidian {
+  background: rgba(13, 20, 18, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 168, 105, 0.22);
+}
