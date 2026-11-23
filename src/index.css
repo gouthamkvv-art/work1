@@ -31,12 +31,33 @@
     font-family: var(--font-sans);
     color: #CBD5D0;
     background-color: #070A09;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent iOS zoom on inputs while keeping compact desktop styling */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  @media (min-width: 640px) {
+    input, select, textarea {
+      font-size: 0.75rem; /* 12px on sm+ screens */
+    }
   }
 }
 
-/* Ultra-luxury custom scrollbar */
+/* Hide scrollbars for touch swipe carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Ultra-luxury custom scrollbar for desktop */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #070A09;

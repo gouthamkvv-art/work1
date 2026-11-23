@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
-export default function BrandLogo({ className = "w-12 h-12", showText = true, textClassName = "" }) {
+export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", showText = true, textClassName = "" }) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="flex items-center gap-3.5 group select-none">
+    <div className="flex items-center gap-2.5 sm:gap-3.5 group select-none">
       {/* Royal Crest Emblem */}
       <div className={`relative shrink-0 ${className}`}>
         {!imageError ? (
           <img
             src="/logo.png"
             alt="Royal Prince Caters and Event Management Logo"
-            className="w-full h-full object-contain rounded-full filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
             onError={() => setImageError(true)}
           />
         ) : (
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-[#050807] via-[#0D1412] to-[#080D0B] border-[1.5px] border-[#C5A869] p-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.8)] flex items-center justify-center group-hover:border-[#E8D5A3] transition-all duration-300">
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-[#050807] via-[#0D1412] to-[#080D0B] border-[1.5px] border-[#C5A869] p-1 shadow-[0_4px_20px_rgba(0,0,0,0.8)] flex items-center justify-center group-hover:border-[#E8D5A3] transition-all duration-300">
             {/* SVG Royal Crest Icon */}
             <svg
               viewBox="0 0 100 100"
@@ -23,11 +23,9 @@ export default function BrandLogo({ className = "w-12 h-12", showText = true, te
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Outer Circular Laurel Arc */}
               <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 2" opacity="0.6" />
               <circle cx="50" cy="50" r="42" stroke="currentColor" strokeWidth="1" />
               
-              {/* Heraldic Shield */}
               <path
                 d="M50 18 L68 26 C68 52 50 68 50 72 C50 68 32 52 32 26 Z"
                 fill="rgba(13, 20, 18, 0.9)"
@@ -36,7 +34,6 @@ export default function BrandLogo({ className = "w-12 h-12", showText = true, te
                 strokeLinejoin="round"
               />
 
-              {/* Imperial Crown inside/atop Shield */}
               <path
                 d="M38 34 L41 46 H59 L62 34 L54 41 L50 31 L46 41 Z"
                 fill="currentColor"
@@ -47,7 +44,6 @@ export default function BrandLogo({ className = "w-12 h-12", showText = true, te
               <circle cx="46" cy="39" r="1.2" fill="currentColor" />
               <circle cx="54" cy="39" r="1.2" fill="currentColor" />
 
-              {/* Royal Prince Monogram 'RPC' */}
               <text
                 x="50"
                 y="60"
@@ -61,7 +57,6 @@ export default function BrandLogo({ className = "w-12 h-12", showText = true, te
                 RPC
               </text>
 
-              {/* Gold Star / Gem at Bottom */}
               <polygon
                 points="50,65 51.5,69 55.5,69.5 52.5,72 53.5,76 50,73.5 46.5,76 47.5,72 44.5,69.5 48.5,69"
                 fill="currentColor"
@@ -75,19 +70,19 @@ export default function BrandLogo({ className = "w-12 h-12", showText = true, te
       {/* Typography Label */}
       {showText && (
         <div className={`flex flex-col text-left ${textClassName}`}>
-          <div className="flex items-center gap-1.5">
-            <span className="font-['Cinzel'] text-lg sm:text-xl font-bold tracking-[0.24em] text-[#FDFBF7] group-hover:text-[#C5A869] transition-colors leading-tight drop-shadow-sm">
+          <div className="flex items-center gap-1">
+            <span className="font-['Cinzel'] text-base sm:text-xl font-bold tracking-[0.18em] sm:tracking-[0.24em] text-[#FDFBF7] group-hover:text-[#C5A869] transition-colors leading-tight drop-shadow-sm whitespace-nowrap">
               ROYAL PRINCE
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="h-[1px] w-3 bg-[#C5A869]/60" />
-            <span className="text-[9px] sm:text-[10px] tracking-[0.32em] text-[#C5A869] uppercase font-semibold">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="h-[1px] w-2 sm:w-3 bg-[#C5A869]/60 shrink-0" />
+            <span className="text-[8px] sm:text-[10px] tracking-[0.22em] sm:tracking-[0.32em] text-[#C5A869] uppercase font-semibold whitespace-nowrap">
               CATERS &amp; EVENT MANAGEMENT
             </span>
-            <span className="h-[1px] w-3 bg-[#C5A869]/60" />
+            <span className="h-[1px] w-2 sm:w-3 bg-[#C5A869]/60 shrink-0" />
           </div>
-          <span className="text-[8px] tracking-[0.26em] text-[#8A9C94] uppercase font-medium mt-0.5">
+          <span className="text-[7px] sm:text-[8px] tracking-[0.22em] text-[#8A9C94] uppercase font-medium mt-0.5">
             PALA • KERALA
           </span>
         </div>
