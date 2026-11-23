@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import WhatsAppChatbot from './components/WhatsAppChatbot';
 import LightboxModal from './components/LightboxModal';
 import QuotationModal from './components/QuotationModal';
+import MobileBottomBar from './components/MobileBottomBar';
 
 export default function App() {
   const [selectedGalleryItem, setSelectedGalleryItem] = useState(null);
@@ -23,7 +24,7 @@ export default function App() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#070A09] text-[#CBD5D0] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#C5A869] selection:text-[#070A09]">
+    <div className="min-h-screen bg-[#070A09] text-[#CBD5D0] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#C5A869] selection:text-[#070A09] pb-16 md:pb-0">
       {/* Top Navigation */}
       <Navbar
         onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
@@ -110,6 +111,12 @@ export default function App() {
       <QuotationModal
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
+      />
+
+      {/* Mobile Sticky Quick Action Bar (Call, WhatsApp, Quotation) */}
+      <MobileBottomBar
+        onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
+        onOpenChatbot={() => setIsChatbotOpen(true)}
       />
     </div>
   );

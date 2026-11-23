@@ -132,7 +132,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
   return (
     <>
       {/* Floating Launcher Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
@@ -158,7 +158,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
 
       {/* Chatbot Window */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[92vw] sm:w-[410px] max-h-[88vh] sm:max-h-[640px] flex flex-col rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] border-2 border-[#C5A869] bg-[#070A09] text-[#FDFBF7] animate-fadeIn">
+        <div className="fixed bottom-20 right-2 left-2 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:w-[410px] max-h-[76vh] sm:max-h-[640px] flex flex-col rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.95)] border-2 border-[#C5A869] bg-[#070A09] text-[#FDFBF7] animate-fadeIn">
           {/* Header */}
           <div className="bg-gradient-to-r from-[#050807] via-[#0D1412] to-[#080D0B] px-4 py-3.5 border-b border-[#C5A869]/30 flex items-center justify-between">
             <div className="flex items-center gap-3">
