@@ -252,7 +252,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
                     placeholder="e.g., George Thomas"
                     value={infoForm.name}
                     onChange={(e) => setInfoForm({ ...infoForm, name: e.target.value })}
-                    className="w-full px-2.5 py-1.5 text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                    className="w-full px-2.5 py-1.5 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
                   />
                 </div>
 
@@ -264,7 +264,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
                       required
                       value={infoForm.eventDate}
                       onChange={(e) => setInfoForm({ ...infoForm, eventDate: e.target.value })}
-                      className="w-full px-2.5 py-1.5 text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                      className="w-full px-2.5 py-1.5 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
                     />
                   </div>
 
@@ -275,7 +275,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
                       placeholder="e.g., 400"
                       value={infoForm.guestCount}
                       onChange={(e) => setInfoForm({ ...infoForm, guestCount: e.target.value })}
-                      className="w-full px-2.5 py-1.5 text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                      className="w-full px-2.5 py-1.5 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
                     />
                   </div>
                 </div>
@@ -288,7 +288,7 @@ export default function WhatsAppChatbot({ isOpen, setIsOpen }) {
                     placeholder="e.g., Pala / Kidangoor / Kottayam"
                     value={infoForm.location}
                     onChange={(e) => setInfoForm({ ...infoForm, location: e.target.value })}
-                    className="w-full px-2.5 py-1.5 text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
+                    className="w-full px-2.5 py-1.5 text-base sm:text-xs rounded bg-[#070A09] border border-[#C5A869]/30 text-white focus:outline-none focus:border-[#C5A869]"
                   />
                 </div>
 
