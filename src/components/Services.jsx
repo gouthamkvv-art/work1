@@ -2,54 +2,49 @@ import React, { useState } from 'react';
 import { Crown, MessageCircle, ArrowRight, Check, Sparkles } from 'lucide-react';
 import { SERVICES, COMPANY_INFO } from '../data/siteData';
 
-export default function Services({ onOpenQuoteModal }) {
+export default function Services({ onOpenQuoteModal, onNavigate }) {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Weddings", "Traditional", "Receptions", "Specialities", "Live Stations", "Corporate", "Event Management"];
+  const categories = ["All", "Weddings", "Traditional", "Receptions", "Live Stations", "Event Management"];
 
   const filteredServices = activeCategory === "All"
-    ? SERVICES
-    : SERVICES.filter(s => s.category === activeCategory);
+    ? SERVICES.slice(0, 6)
+    : SERVICES.filter(s => s.category.toLowerCase().includes(activeCategory.toLowerCase()) || activeCategory === "All");
 
   const handleWhatsAppEnquiry = (service) => {
     const text = encodeURIComponent(
-      `Hello Royal Prince Caters and Event Management! 👑\n\nI would like to enquire about your *${service.title}* services for an upcoming event in Pala/Kottayam/Kerala.\n\nPlease share menu options, packages, and pricing details.\n\nThank you!`
+      `Hello Royal Prince Caters! 👑\n\nI would like to enquire about your *${service.title}* for an upcoming event in Kerala.\n\nPlease share menu options, packages, and pricing details.\n\nThank you!`
     );
     window.open(`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${text}`, '_blank');
   };
 
   return (
-    <section id="services" className="py-16 sm:py-28 bg-[#070A09] text-[#FDFBF7] relative overflow-hidden border-b border-[#C5A869]/20">
-      {/* Background Decor */}
-      <div className="absolute inset-0 bg-royal-pattern opacity-10 pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#C5A869]/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#0E2921]/30 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="services" className="py-16 sm:py-24 bg-white text-[#1E293B] relative overflow-hidden border-b border-[#EADFC7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1412] border border-[#C5A869]/40 text-[#E8D5A3] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A869]" />
-            <span>Haute Hospitality Offerings</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCF8EE] border border-[#C59A3F]/30 text-[#9E7628] text-[11px] font-bold tracking-[0.25em] uppercase mb-3 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#C59A3F]" />
+            <span>Our Offerings</span>
           </div>
-          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#FDFBF7] mb-3 sm:mb-4">
-            Our Catering &amp; Event Services
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-3">
+            Catering &amp; Event Services
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
-          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
-            Every celebration has its own soul. We tailor our royal menus, culinary stations, and venue decor to match your unique vision, delivered by our temperature-controlled fleet.
+          <div className="w-20 h-1 bg-[#C59A3F] mx-auto mb-4 rounded-full" />
+          <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl italic text-[#526071] max-w-2xl mx-auto">
+            From intimate betrothals to royal wedding banquets for thousands, every event is executed with majestic flair and culinary distinction.
           </p>
 
-          {/* Filter Pills with Horizontal Swipe on Mobile */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 -mx-4 sm:mx-auto sm:flex-wrap sm:justify-center justify-start mt-6 sm:mt-8">
+          {/* Simple Category Filter */}
+          <div className="flex items-center justify-center gap-2 flex-wrap mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shrink-0 whitespace-nowrap ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-gradient-to-r from-[#DFCA96] to-[#C5A869] text-[#070A09] font-bold shadow-[0_0_15px_rgba(197,168,105,0.3)] scale-105'
-                    : 'bg-[#0D1412] text-[#CBD5D0] hover:text-[#C5A869] hover:bg-[#121C18] border border-[#C5A869]/20'
+                    ? 'bg-gold-gradient text-[#0F172A] font-bold shadow-sm'
+                    : 'bg-[#F7F4EE] text-[#526071] hover:text-[#0F172A] hover:bg-[#EADFC7]/50 border border-[#EADFC7]'
                 }`}
               >
                 {cat}
@@ -58,58 +53,64 @@ export default function Services({ onOpenQuoteModal }) {
           </div>
         </div>
 
-        {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {filteredServices.map((service) => (
+        {/* 6 Services Grid (Clean 3-column layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {(filteredServices.length > 0 ? filteredServices : SERVICES.slice(0, 6)).map((service) => (
             <div
               key={service.id}
-              className="bg-[#0D1412] rounded-xl overflow-hidden border border-[#C5A869]/20 hover:border-[#C5A869] shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
+              className="bg-[#FBF9F5] rounded-2xl overflow-hidden border border-[#EADFC7] hover:border-[#C59A3F] shadow-xs hover:shadow-royal-hover transition-all duration-300 flex flex-col group"
             >
-              {/* Service Photograph with Overlay */}
-              <div className="relative h-52 sm:h-60 overflow-hidden">
+              {/* Service Photograph */}
+              <div className="relative h-48 sm:h-56 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1412] via-[#0D1412]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Category Badge */}
-                <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded bg-[#070A09]/90 border border-[#C5A869]/40 text-[#E8D5A3] text-[10px] font-bold tracking-wider uppercase backdrop-blur-xs">
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs text-[#9E7628] font-bold text-[10px] tracking-wider uppercase border border-[#EADFC7] shadow-xs">
                   {service.badge}
                 </div>
               </div>
 
-              {/* Card Content */}
+              {/* Service Details */}
               <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-['Cinzel'] text-lg font-bold text-[#FDFBF7] group-hover:text-[#E8D5A3] transition-colors mb-2 leading-snug">
+                  <h3 className="font-['Cinzel'] text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#9E7628] transition-colors mb-2">
                     {service.title}
                   </h3>
-
-                  <p className="text-xs text-[#CBD5D0] leading-relaxed mb-4 font-normal">
+                  <p className="text-xs sm:text-sm text-[#526071] leading-relaxed mb-4">
                     {service.description}
                   </p>
 
                   {/* Highlights Bullet List */}
-                  <ul className="space-y-1.5 mb-6 border-t border-[#C5A869]/15 pt-3">
-                    {service.highlights.slice(0, 3).map((hl, i) => (
-                      <li key={i} className="text-[11px] text-[#8A9C94] flex items-start gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-[#C5A869] shrink-0 mt-0.5" />
-                        <span>{hl}</span>
-                      </li>
+                  <div className="space-y-1.5 mb-5 pt-3 border-t border-[#EADFC7]">
+                    {service.highlights.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs text-[#475569]">
+                        <Check className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                {/* Card CTA: Enquire on WhatsApp Button (7012230764) */}
-                <div className="pt-2">
+                {/* Card Action Buttons */}
+                <div className="flex items-center gap-2 pt-2">
                   <button
                     onClick={() => handleWhatsAppEnquiry(service)}
-                    className="w-full py-3 px-4 bg-[#070A09] hover:bg-[#25D366] text-[#E8D5A3] hover:text-white border border-[#C5A869]/40 hover:border-transparent rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md group/btn"
+                    className="flex-1 py-2.5 px-3 rounded-xl bg-[#10B981]/10 hover:bg-[#10B981]/20 text-[#047857] border border-[#10B981]/30 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <MessageCircle className="w-4 h-4 text-[#25D366] group-hover/btn:text-white transition-colors" />
-                    <span>Enquire on WhatsApp</span>
+                    <MessageCircle className="w-3.5 h-3.5 fill-[#047857]" />
+                    <span>WhatsApp Enquiry</span>
+                  </button>
+                  <button
+                    onClick={onOpenQuoteModal}
+                    className="py-2.5 px-3 rounded-xl bg-white hover:bg-[#FCF8EE] border border-[#EADFC7] hover:border-[#C59A3F] text-[#0F172A] text-xs font-semibold flex items-center justify-center transition-colors cursor-pointer"
+                    title="Get Quote"
+                  >
+                    <ArrowRight className="w-3.5 h-3.5 text-[#9E7628]" />
                   </button>
                 </div>
               </div>
@@ -117,26 +118,31 @@ export default function Services({ onOpenQuoteModal }) {
           ))}
         </div>
 
-        {/* Custom Event Advisory Banner */}
-        <div className="mt-16 bg-gradient-to-r from-[#0D1412] via-[#121C18] to-[#0D1412] rounded-xl border border-[#C5A869]/40 p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A869] font-bold block mb-1">
-              Private Tastings &amp; Custom Curation
-            </span>
-            <h4 className="font-['Cinzel'] text-xl sm:text-2xl font-bold text-[#FDFBF7] mb-1">
-              Planning a Gathering from 50 to 5,000+ Guests?
-            </h4>
-            <p className="text-xs sm:text-sm text-[#8A9C94]">
-              Managing Director Johnykutty P.V. and our senior culinary captains will personalize each dish for your celebration anywhere in Kerala.
+        {/* Bottom Banner */}
+        <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-2xl bg-[#FCF8EE] border border-[#EADFC7] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div>
+            <h3 className="font-['Cinzel'] text-base sm:text-lg font-bold text-[#0F172A]">
+              Planning a Custom Celebration in Kerala?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#526071] mt-0.5">
+              We personalize dishes, dining styles, live counters, and guest capacities from 100 to 5,000+ attendees.
             </p>
           </div>
-
-          <button
-            onClick={onOpenQuoteModal}
-            className="px-7 py-3.5 bg-gradient-to-r from-[#FFF1CD] via-[#DFCA96] to-[#C5A869] text-[#070A09] text-xs font-extrabold uppercase tracking-widest rounded shadow-xl hover:scale-105 transition-all duration-300 shrink-0 cursor-pointer"
-          >
-            Request Custom Menu &amp; Quote
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => onNavigate ? onNavigate('menu') : null}
+              className="px-5 py-2.5 rounded-xl bg-gold-gradient text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm hover:brightness-105 active:scale-98 transition-all shrink-0 cursor-pointer flex items-center gap-1.5"
+            >
+              <span>View Signature Dishes</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <button
+              onClick={() => onNavigate ? onNavigate('contact') : onOpenQuoteModal()}
+              className="px-5 py-2.5 rounded-xl bg-white hover:bg-[#FCF8EE] border border-[#EADFC7] text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm transition-all shrink-0 cursor-pointer"
+            >
+              Custom Quote
+            </button>
+          </div>
         </div>
       </div>
     </section>

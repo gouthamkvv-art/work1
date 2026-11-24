@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", showText = true, textClassName = "" }) {
+export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", showText = true, textClassName = "", lightVariant = false }) {
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -15,11 +15,11 @@ export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", sho
             onError={() => setImageError(true)}
           />
         ) : (
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-[#050807] via-[#0D1412] to-[#080D0B] border-[1.5px] border-[#C5A869] p-1 shadow-[0_4px_20px_rgba(0,0,0,0.8)] flex items-center justify-center group-hover:border-[#E8D5A3] transition-all duration-300">
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-[#0B1325] via-[#1E293B] to-[#0F172A] border-[1.5px] border-[#C59A3F] p-1 shadow-md flex items-center justify-center group-hover:border-[#DFBE6F] transition-all duration-300">
             {/* SVG Royal Crest Icon */}
             <svg
               viewBox="0 0 100 100"
-              className="w-full h-full text-[#C5A869] filter drop-shadow"
+              className="w-full h-full text-[#C59A3F] filter drop-shadow"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -28,7 +28,7 @@ export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", sho
               
               <path
                 d="M50 18 L68 26 C68 52 50 68 50 72 C50 68 32 52 32 26 Z"
-                fill="rgba(13, 20, 18, 0.9)"
+                fill="rgba(11, 19, 37, 0.9)"
                 stroke="currentColor"
                 strokeWidth="1.8"
                 strokeLinejoin="round"
@@ -41,8 +41,6 @@ export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", sho
               <circle cx="38" cy="32" r="1.5" fill="currentColor" />
               <circle cx="50" cy="29" r="1.8" fill="currentColor" />
               <circle cx="62" cy="32" r="1.5" fill="currentColor" />
-              <circle cx="46" cy="39" r="1.2" fill="currentColor" />
-              <circle cx="54" cy="39" r="1.2" fill="currentColor" />
 
               <text
                 x="50"
@@ -56,12 +54,6 @@ export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", sho
               >
                 RPC
               </text>
-
-              <polygon
-                points="50,65 51.5,69 55.5,69.5 52.5,72 53.5,76 50,73.5 46.5,76 47.5,72 44.5,69.5 48.5,69"
-                fill="currentColor"
-                opacity="0.9"
-              />
             </svg>
           </div>
         )}
@@ -71,18 +63,22 @@ export default function BrandLogo({ className = "w-10 h-10 sm:w-12 sm:h-12", sho
       {showText && (
         <div className={`flex flex-col text-left ${textClassName}`}>
           <div className="flex items-center gap-1">
-            <span className="font-['Cinzel'] text-base sm:text-xl font-bold tracking-[0.18em] sm:tracking-[0.24em] text-[#FDFBF7] group-hover:text-[#C5A869] transition-colors leading-tight drop-shadow-sm whitespace-nowrap">
+            <span className={`font-['Cinzel'] text-base sm:text-xl font-bold tracking-[0.16em] sm:tracking-[0.22em] transition-colors leading-tight whitespace-nowrap ${
+              lightVariant ? 'text-[#FDFBF7] group-hover:text-[#DFBE6F]' : 'text-[#0F172A] group-hover:text-[#C59A3F]'
+            }`}>
               ROYAL PRINCE
             </span>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
-            <span className="h-[1px] w-2 sm:w-3 bg-[#C5A869]/60 shrink-0" />
-            <span className="text-[8px] sm:text-[10px] tracking-[0.22em] sm:tracking-[0.32em] text-[#C5A869] uppercase font-semibold whitespace-nowrap">
+            <span className="h-[1px] w-2 sm:w-3 bg-[#C59A3F]/60 shrink-0" />
+            <span className="text-[8px] sm:text-[9.5px] tracking-[0.2em] sm:tracking-[0.28em] text-[#C59A3F] uppercase font-semibold whitespace-nowrap">
               CATERS &amp; EVENT MANAGEMENT
             </span>
-            <span className="h-[1px] w-2 sm:w-3 bg-[#C5A869]/60 shrink-0" />
+            <span className="h-[1px] w-2 sm:w-3 bg-[#C59A3F]/60 shrink-0" />
           </div>
-          <span className="text-[7px] sm:text-[8px] tracking-[0.22em] text-[#8A9C94] uppercase font-medium mt-0.5">
+          <span className={`text-[7px] sm:text-[8px] tracking-[0.22em] uppercase font-medium mt-0.5 ${
+            lightVariant ? 'text-[#94A3B8]' : 'text-[#64748B]'
+          }`}>
             PALA • KERALA
           </span>
         </div>

@@ -1,24 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian-deep: #070A09;
-  --color-obsidian-surface: #0D1412;
-  --color-obsidian-card: #121C18;
-  --color-obsidian-card-hover: #17241F;
-  --color-obsidian-border: rgba(197, 168, 105, 0.22);
+  --color-brand-ivory: #FBF9F5;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-surface-alt: #F7F4EE;
+  --color-brand-border: #EADFC7;
+  --color-brand-border-light: #F2EBDC;
   
-  --color-gold-champagne: #C5A869;
-  --color-gold-light: #E8D5A3;
-  --color-gold-metallic: #DFCA96;
-  --color-gold-bronze: #9E7D3B;
-  --color-gold-dim: #7D6430;
+  --color-brand-gold: #C59A3F;
+  --color-brand-gold-dark: #9E7628;
+  --color-brand-gold-light: #DFBE6F;
+  --color-brand-gold-pale: #FCF8EE;
 
-  --color-emerald-deep: #091713;
-  --color-emerald-accent: #0E2921;
-
-  --color-pearl-white: #FDFBF7;
-  --color-pearl-muted: #CBD5D0;
-  --color-sage-subtle: #8A9C94;
+  --color-brand-dark: #0F172A;
+  --color-brand-charcoal: #1E293B;
+  --color-brand-muted: #526071;
+  --color-brand-navy: #0B1325;
+  
+  --color-brand-emerald: #059669;
 
   --font-royal: 'Cinzel', serif;
   --font-serif: 'Cormorant Garamond', serif;
@@ -29,18 +28,17 @@
   html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
-    color: #CBD5D0;
-    background-color: #070A09;
+    color: #2D3748;
+    background-color: #FBF9F5;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Prevent iOS zoom on inputs while keeping compact desktop styling */
   input, select, textarea {
     font-size: 16px;
   }
   @media (min-width: 640px) {
     input, select, textarea {
-      font-size: 0.75rem; /* 12px on sm+ screens */
+      font-size: 0.875rem;
     }
   }
 }
@@ -54,70 +52,56 @@
   scrollbar-width: none;
 }
 
-/* Ultra-luxury custom scrollbar for desktop */
+/* Luxury custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #070A09;
+  background: #F7F4EE;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5A869;
+  background: #C59A3F;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E8D5A3;
+  background: #9E7628;
 }
 
-/* Ultra-Luxury Gold Metallic Gradients */
+/* Royal Gold Metallic Gradients */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #F4E4BA 0%, #C5A869 50%, #9E7D3B 100%);
+  background: linear-gradient(135deg, #DFBE6F 0%, #C59A3F 50%, #9E7628 100%);
 }
 
-.bg-gold-metallic {
-  background: linear-gradient(135deg, #FFF1CD 0%, #DFCA96 35%, #C5A869 70%, #9E7D3B 100%);
+.bg-gold-subtle {
+  background: linear-gradient(135deg, #FFFDF8 0%, #FAF5E8 100%);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FDFBF7 0%, #E8D5A3 40%, #C5A869 75%, #9E7D3B 100%);
+  background: linear-gradient(135deg, #B8860B 0%, #C59A3F 60%, #8C651A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gold-pure {
-  background: linear-gradient(135deg, #FFF5D6 0%, #DFCA96 50%, #C5A869 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.border-gold-hairline {
-  border-color: rgba(197, 168, 105, 0.22);
+.border-gold-subtle {
+  border-color: #EADFC7;
 }
 
 .border-gold-glow {
-  border-color: rgba(197, 168, 105, 0.65);
-  box-shadow: 0 0 25px rgba(197, 168, 105, 0.18);
+  border-color: rgba(197, 154, 63, 0.6);
+  box-shadow: 0 0 20px rgba(197, 154, 63, 0.15);
 }
 
-.shadow-ultra-luxury {
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(197, 168, 105, 0.08);
+.shadow-royal {
+  box-shadow: 0 10px 30px -5px rgba(197, 154, 63, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
 }
 
-.shadow-gold-subtle {
-  box-shadow: 0 10px 30px -5px rgba(197, 168, 105, 0.22);
+.shadow-royal-hover {
+  box-shadow: 0 20px 40px -8px rgba(197, 154, 63, 0.16), 0 8px 20px -4px rgba(0, 0, 0, 0.06);
 }
 
-/* Subtle gold diamond stipple pattern */
+/* Subtle luxury warm damask / stipple pattern */
 .bg-royal-pattern {
-  background-image: radial-gradient(rgba(197, 168, 105, 0.1) 1px, transparent 0);
-  background-size: 28px 28px;
-}
-
-/* Glassmorphism panel */
-.glass-obsidian {
-  background: rgba(13, 20, 18, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 168, 105, 0.22);
+  background-image: radial-gradient(rgba(197, 154, 63, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
 }

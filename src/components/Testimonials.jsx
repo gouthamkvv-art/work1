@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Crown, Star, ChevronLeft, ChevronRight, Quote, MapPin } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, MapPin, Heart, ArrowRight } from 'lucide-react';
 import { TESTIMONIALS } from '../data/siteData';
 
-export default function Testimonials() {
+export default function Testimonials({ onNavigate }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prev = () => {
@@ -15,100 +15,112 @@ export default function Testimonials() {
 
   const current = TESTIMONIALS[currentIndex];
 
+  const locations = ["Pala", "Kidangoor", "Kottayam", "Ettumanoor", "Changanassery", "Thodupuzha", "Ernakulam"];
+
   return (
-    <section id="testimonials" className="py-16 sm:py-28 bg-[#070A09] text-[#CBD5D0] relative overflow-hidden border-b border-[#C5A869]/20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-16 sm:py-24 bg-[#FBF9F5] text-[#1E293B] relative overflow-hidden border-b border-[#EADFC7]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A869] font-semibold mb-3">
-            <Quote className="w-4 h-4 text-[#C5A869]" />
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCF8EE] border border-[#C59A3F]/30 text-[#9E7628] text-[11px] font-bold tracking-[0.25em] uppercase mb-3 shadow-xs">
+            <Heart className="w-3.5 h-3.5 text-[#C59A3F]" />
             <span>Words of Appreciation</span>
           </div>
           
-          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-3 sm:mb-4">
-            Guest &amp; Client Testimonials
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#0F172A] mb-3">
+            Client Testimonials
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
+          <div className="w-20 h-1 bg-[#C59A3F] mx-auto mb-4 rounded-full" />
           
-          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
-            The joy of our client families in Pala, Kidangoor, Kottayam, and across Kerala is our crowning achievement.
+          <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl italic text-[#526071] max-w-2xl mx-auto">
+            The heartfelt blessings and smiles of host families across Central Travancore are our greatest testament.
           </p>
         </div>
 
-        {/* Carousel Showcase */}
-        <div className="relative bg-[#0D1412] text-[#FDFBF7] rounded-2xl p-6 sm:p-14 border border-[#C5A869]/30 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-w-4xl mx-auto">
+        {/* Carousel Card */}
+        <div className="relative bg-white text-[#1E293B] rounded-3xl p-6 sm:p-12 border border-[#EADFC7] shadow-royal max-w-3xl mx-auto">
           {/* Watermark Quote Icon */}
-          <div className="absolute top-6 right-8 text-[#C5A869]/8 pointer-events-none">
-            <Quote className="w-24 h-24 sm:w-32 sm:h-32" />
+          <div className="absolute top-6 right-8 text-[#C59A3F]/10 pointer-events-none">
+            <Quote className="w-20 h-20 sm:w-28 sm:h-28" />
           </div>
 
           <div className="relative z-10">
-            {/* Stars */}
-            <div className="flex items-center gap-1.5 mb-4 sm:mb-6">
+            {/* 5 Golden Stars */}
+            <div className="flex items-center gap-1.5 mb-5">
               {[...Array(current.rating)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A869] fill-[#C5A869]" />
+                <Star key={i} className="w-4.5 h-4.5 text-[#C59A3F] fill-[#C59A3F]" />
               ))}
+              <span className="ml-2 text-xs font-bold text-[#9E7628]">5.0 / 5.0 Rating</span>
             </div>
 
             {/* Testimonial Quote */}
-            <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl md:text-3xl italic text-[#FDFBF7] leading-relaxed mb-6 sm:mb-8">
+            <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl italic text-[#0F172A] leading-relaxed mb-8">
               &ldquo;{current.review}&rdquo;
             </p>
 
             {/* Author Information */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#C5A869]/20 pt-5 sm:pt-6 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#EADFC7] pt-5 gap-4">
               <div>
-                <h3 className="font-['Cinzel'] text-base sm:text-lg font-bold text-[#E8D5A3]">
+                <h3 className="font-['Cinzel'] text-base sm:text-lg font-bold text-[#0F172A]">
                   {current.name}
                 </h3>
-                <div className="flex items-center gap-2 text-xs text-[#8A9C94] mt-0.5">
-                  <span>{current.event}</span>
+                <div className="flex items-center gap-2 text-xs text-[#64748B] mt-0.5">
+                  <span className="font-medium text-[#9E7628]">{current.event}</span>
                   <span>•</span>
-                  <span className="flex items-center gap-1 text-[#CBD5D0]">
-                    <MapPin className="w-3 h-3 text-[#C5A869]" />
+                  <span className="flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-[#C59A3F]" />
                     {current.location}
                   </span>
                 </div>
               </div>
 
-              {/* Navigation Arrows */}
-              <div className="flex items-center gap-3">
+              {/* Navigation Controls */}
+              <div className="flex items-center gap-2 self-end sm:self-auto">
                 <button
                   onClick={prev}
                   aria-label="Previous Testimonial"
-                  className="w-10 h-10 rounded-full bg-[#070A09] border border-[#C5A869]/40 hover:border-[#C5A869] hover:bg-[#C5A869] hover:text-[#070A09] text-[#C5A869] flex items-center justify-center transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-[#F7F4EE] hover:bg-gold-gradient text-[#0F172A] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#EADFC7]"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-xs text-[#8A9C94] font-medium">
-                  {currentIndex + 1} / {TESTIMONIALS.length}
+                <span className="text-xs text-[#64748B] font-semibold px-1">
+                  {currentIndex + 1} of {TESTIMONIALS.length}
                 </span>
                 <button
                   onClick={next}
                   aria-label="Next Testimonial"
-                  className="w-10 h-10 rounded-full bg-[#070A09] border border-[#C5A869]/40 hover:border-[#C5A869] hover:bg-[#C5A869] hover:text-[#070A09] text-[#C5A869] flex items-center justify-center transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-[#F7F4EE] hover:bg-gold-gradient text-[#0F172A] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#EADFC7]"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Client Logos / Region Coverage Tag */}
-        <div className="mt-14 text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#8A9C94] font-semibold mb-3">
-            Proudly Catering Across Kerala
+        {/* Coverage Badges */}
+        <div className="mt-12 text-center">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-[#64748B] font-bold mb-3">
+            Serving Celebrations Across Central Kerala
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-[#CBD5D0] font-medium">
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Pala</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Kidangoor</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Kottayam</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Ettumanoor</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Changanassery</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Thodupuzha</span>
-            <span className="px-3.5 py-1.5 bg-[#0D1412] rounded-lg border border-[#C5A869]/25">Ernakulam</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            {locations.map((loc) => (
+              <span 
+                key={loc}
+                className="px-3.5 py-1.5 bg-white rounded-full border border-[#EADFC7] text-xs font-semibold text-[#0F172A] shadow-xs"
+              >
+                {loc}
+              </span>
+            ))}
           </div>
+
+          <button
+            onClick={() => onNavigate ? onNavigate('contact') : null}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gold-gradient text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm hover:brightness-105 active:scale-98 transition-all cursor-pointer"
+          >
+            <span>Proceed to Quotation &amp; Contact</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

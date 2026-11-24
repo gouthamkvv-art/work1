@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Crown, MessageCircle, Send, Calculator, Check, Users, MapPin, Calendar, Phone, User } from 'lucide-react';
+import { X, Calendar, MessageCircle, Users, MapPin, Phone, User } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 
 export default function QuotationModal({ isOpen, onClose }) {
@@ -7,7 +7,7 @@ export default function QuotationModal({ isOpen, onClose }) {
     name: '',
     phone: '',
     eventType: 'Grand Wedding Catering',
-    guests: 350,
+    guests: '350',
     location: 'Pala, Kottayam',
     eventDate: '',
     foodPreference: 'Both Veg & Non-Veg Multi-Course',
@@ -23,7 +23,7 @@ export default function QuotationModal({ isOpen, onClose }) {
       return;
     }
 
-    const message = `Hello Royal Prince Caters and Event Management! 👑\n\nI would like to request a formal quotation:\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Event Type:* ${formData.eventType}\n*Event Date:* ${formData.eventDate}\n*Location:* ${formData.location}\n*Estimated Guests:* ${formData.guests} people\n*Food Style:* ${formData.foodPreference}\n*Stage & Event Decor:* ${formData.needDecor ? 'Yes, required' : 'Catering only'}\n\nPlease share availability, customized menu packages, and pricing details.\n\nThank you!`;
+    const message = `Hello Royal Prince Caters and Event Management! 👑\n\nI would like to request an official quotation:\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Event Type:* ${formData.eventType}\n*Event Date:* ${formData.eventDate}\n*Location:* ${formData.location}\n*Estimated Guests:* ${formData.guests} people\n*Food Preference:* ${formData.foodPreference}\n*Stage & Decor:* ${formData.needDecor ? 'Yes, required' : 'Catering only'}\n\nPlease share availability and quotation proposals.\n\nThank you!`;
 
     window.open(`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
     onClose();
@@ -31,170 +31,152 @@ export default function QuotationModal({ isOpen, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-xl w-full bg-[#0D1412] border-2 border-[#C5A869] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] p-5 sm:p-8 text-[#FDFBF7] my-auto max-h-[92vh] overflow-y-auto"
+        className="relative max-w-lg w-full bg-white border border-[#EADFC7] rounded-3xl shadow-2xl p-6 sm:p-8 text-[#1E293B] my-auto max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close Modal"
-          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-8 h-8 rounded-full bg-black/60 hover:bg-[#C5A869] text-[#CBD5D0] hover:text-[#070A09] flex items-center justify-center transition-colors cursor-pointer z-10"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#F7F4EE] hover:bg-[#EADFC7] text-[#0F172A] flex items-center justify-center transition-colors cursor-pointer"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Modal Header */}
-        <div className="text-center mb-5 sm:mb-6 pr-6 sm:pr-0">
-          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#070A09] border border-[#C5A869] mb-2 sm:mb-3 shadow-md overflow-hidden">
-            <img src="/logo.png" alt="Royal Prince Catering Logo" className="w-full h-full object-contain rounded-full" />
+        <div className="text-center mb-6 pr-6 sm:pr-0">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#FCF8EE] border border-[#C59A3F]/30 mb-2.5 overflow-hidden">
+            <img src="/logo.png" alt="Royal Prince Logo" className="w-9 h-9 object-contain" />
           </div>
-          <h3 className="font-['Cinzel'] text-lg sm:text-2xl font-bold text-[#FDFBF7]">
+          <h3 className="font-['Cinzel'] text-xl sm:text-2xl font-bold text-[#0F172A]">
             Request An Official Quotation
           </h3>
-          <p className="text-[10px] sm:text-xs text-[#E8D5A3] uppercase tracking-widest mt-0.5 sm:mt-1">
+          <p className="text-[11px] text-[#9E7628] uppercase tracking-widest mt-0.5 font-semibold">
             Royal Prince Caters &amp; Event Management • Pala
           </p>
         </div>
 
-        <form onSubmit={handleSendToWhatsApp} className="space-y-3.5 sm:space-y-4 text-xs">
-          {/* Name & Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Your Full Name *</label>
+        {/* Modal Form */}
+        <form onSubmit={handleSendToWhatsApp} className="space-y-4">
+          <div>
+            <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+              Your Full Name *
+            </label>
+            <div className="relative">
+              <User className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 required
-                placeholder="e.g., Mathew Kurian"
+                placeholder="e.g. Thomas Varghese"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
-              />
-            </div>
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Phone Number *</label>
-              <input
-                type="tel"
-                required
-                placeholder="e.g., +91 94475 00000"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-sm outline-none"
               />
             </div>
           </div>
 
-          {/* Event Type & Date */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Event Type</label>
+              <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+                Phone Number *
+              </label>
+              <div className="relative">
+                <Phone className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="tel"
+                  required
+                  placeholder="+91 98765 43210"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-sm outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+                Event Date *
+              </label>
+              <div className="relative">
+                <Calendar className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="date"
+                  required
+                  value={formData.eventDate}
+                  onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-sm outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+                Event Type
+              </label>
               <select
                 value={formData.eventType}
                 onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-xs outline-none"
               >
                 <option value="Grand Wedding Catering">Grand Wedding Catering</option>
-                <option value="Traditional Kerala Sadhya">Traditional Kerala Sadhya</option>
-                <option value="Reception & Evening Feast">Reception &amp; Evening Feast</option>
+                <option value="Authentic Kerala Sadhya">Authentic Kerala Sadhya</option>
+                <option value="Reception / Evening Dinner">Reception / Evening Dinner</option>
                 <option value="Betrothal / Manasammatham">Betrothal / Manasammatham</option>
-                <option value="Birthday / Jubilee Celebration">Birthday / Jubilee Celebration</option>
-                <option value="Corporate Event / Conference">Corporate Event / Conference</option>
+                <option value="Corporate / Family Function">Corporate / Family Function</option>
               </select>
             </div>
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Event Date *</label>
-              <input
-                type="date"
-                required
-                value={formData.eventDate}
-                onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
-              />
-            </div>
-          </div>
 
-          {/* Guest Count Slider */}
-          <div className="bg-[#070A09] p-3 sm:p-4 rounded-xl border border-[#C5A869]/25 shadow-inner">
-            <div className="flex items-center justify-between mb-1.5">
-              <label className="text-[11px] uppercase font-bold text-[#C5A869] flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5" />
-                <span>Estimated Guests</span>
+            <div>
+              <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+                Estimated Guests
               </label>
-              <span className="font-['Cinzel'] font-bold text-sm text-[#E8D5A3]">
-                {formData.guests} Guests
-              </span>
-            </div>
-            <input
-              type="range"
-              min="50"
-              max="3000"
-              step="25"
-              value={formData.guests}
-              onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) })}
-              className="w-full accent-[#C5A869] cursor-pointer"
-            />
-            <div className="flex justify-between text-[10px] text-[#8A9C94] mt-1">
-              <span>50 Intimate</span>
-              <span>500 Standard</span>
-              <span>1500+ Grand</span>
-              <span>3000 Royal</span>
+              <div className="relative">
+                <Users className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="number"
+                  min="50"
+                  step="50"
+                  value={formData.guests}
+                  onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-sm outline-none"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Location & Food Preference */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Event Location / Town</label>
+          <div>
+            <label className="block text-xs font-bold text-[#0F172A] uppercase mb-1">
+              Location / Venue Town
+            </label>
+            <div className="relative">
+              <MapPin className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="e.g., Pala, Kidangoor, Kottayam"
+                placeholder="e.g. Pala, Kottayam"
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FBF9F5] border border-[#CBD5E1] focus:border-[#C59A3F] text-[#0F172A] text-sm outline-none"
               />
             </div>
-            <div>
-              <label className="block text-[11px] uppercase font-bold text-[#C5A869] mb-1">Catering Preference</label>
-              <select
-                value={formData.foodPreference}
-                onChange={(e) => setFormData({ ...formData, foodPreference: e.target.value })}
-                className="w-full px-3 py-2 sm:py-2.5 rounded-lg bg-[#070A09] border border-[#C5A869]/30 text-base sm:text-xs text-white focus:outline-none focus:border-[#C5A869]"
-              >
-                <option value="Both Veg & Non-Veg Multi-Course">Both Veg &amp; Non-Veg Multi-Course</option>
-                <option value="Traditional 28-Dish Kerala Sadhya">Traditional 28-Dish Kerala Sadhya</option>
-                <option value="Royal Dum Biriyani Feast">Royal Dum Biriyani Feast</option>
-                <option value="Live Counters + Sizzlers + Starters">Live Counters + Sizzlers + Starters</option>
-                <option value="Custom Syrian Christian Delicacies">Custom Syrian Christian Delicacies</option>
-              </select>
-            </div>
           </div>
 
-          {/* Stage Decor Checkbox */}
-          <div className="flex items-center gap-2 pt-1">
-            <input
-              type="checkbox"
-              id="decorCheck"
-              checked={formData.needDecor}
-              onChange={(e) => setFormData({ ...formData, needDecor: e.target.checked })}
-              className="w-4 h-4 accent-[#C5A869] cursor-pointer"
-            />
-            <label htmlFor="decorCheck" className="text-xs text-[#CBD5D0] cursor-pointer">
-              Include Stage Decor, Floral Entrance &amp; Event Management in quotation
-            </label>
-          </div>
-
-          {/* Submit Action */}
-          <div className="pt-3">
+          <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-[#FFF1CD] via-[#DFCA96] to-[#C5A869] text-[#070A09] font-extrabold text-xs uppercase tracking-widest rounded-lg shadow-xl hover:shadow-[0_0_25px_rgba(197,168,105,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 rounded-xl bg-gold-gradient text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-105 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 text-[#070A09]" />
-              <span>Send Quotation to WhatsApp (+91 70122 30764)</span>
+              <MessageCircle className="w-4 h-4 text-[#0F172A] fill-[#0F172A]" />
+              <span>Send To WhatsApp Desk</span>
             </button>
+            <p className="text-center text-[10px] text-[#64748B] mt-2">
+              Direct connection with Founder Johnykutty P.V. &amp; Pala Banquet Team.
+            </p>
           </div>
         </form>
       </div>

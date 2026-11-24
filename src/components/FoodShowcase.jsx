@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
-import { Crown, Sparkles, UtensilsCrossed, ChevronRight, BookOpen, MessageCircle } from 'lucide-react';
+import { UtensilsCrossed, Sparkles, MessageCircle, Eye } from 'lucide-react';
 import { FOOD_COLLECTION, COMPANY_INFO } from '../data/siteData';
 
-export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
+export default function FoodShowcase({ onSelectImage, onOpenChatbot, onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = [
-    "All",
-    "Kerala Sadhya",
-    "Biriyani & Grills",
-    "Traditional Kerala Cuisine",
-    "Non-Veg Specialities",
-    "Live Counters",
-    "Royal Desserts",
-    "Starters & Snacks"
-  ];
+  const categories = ["All", "Kerala Sadhya", "Biriyani & Grills", "Non-Veg Specialities", "Royal Desserts"];
 
   const filteredItems = selectedCategory === "All"
     ? FOOD_COLLECTION
-    : FOOD_COLLECTION.filter(item => item.category === selectedCategory);
+    : FOOD_COLLECTION.filter(item => item.category === selectedCategory || (selectedCategory === "Non-Veg Specialities" && (item.category.includes("Non-Veg") || item.category.includes("Traditional"))));
 
   const handleDishInquiry = (dish) => {
     const text = encodeURIComponent(
@@ -28,32 +19,32 @@ export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
   };
 
   return (
-    <section id="food-collection" className="py-16 sm:py-28 bg-[#090E0C] text-[#CBD5D0] relative border-b border-[#C5A869]/20">
+    <section id="menu" className="py-16 sm:py-24 bg-[#FBF9F5] text-[#1E293B] relative border-b border-[#EADFC7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C5A869] font-semibold mb-3">
-            <UtensilsCrossed className="w-4 h-4 text-[#C5A869]" />
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCF8EE] border border-[#C59A3F]/30 text-[#9E7628] text-[11px] font-bold tracking-[0.25em] uppercase mb-3 shadow-xs">
+            <UtensilsCrossed className="w-3.5 h-3.5 text-[#C59A3F]" />
             <span>Signature Gastronomy</span>
           </div>
-          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#FDFBF7] mb-3 sm:mb-4">
-            The Signature Food Collection
+          <h2 className="font-['Cinzel'] text-2xl sm:text-4xl md:text-5xl font-bold text-[#0F172A] mb-3">
+            The Royal Food Collection
           </h2>
-          <div className="w-20 h-[1.5px] bg-[#C5A869] mx-auto mb-4 sm:mb-6" />
-          <p className="font-['Cormorant_Garamond'] text-base sm:text-xl italic text-[#CBD5D0] max-w-2xl mx-auto font-normal">
-            An editorial showcase of authentic Central Kerala culinary masterpieces, prepared with cold-pressed oils, freshly roasted whole spices, and generational craft.
+          <div className="w-20 h-1 bg-[#C59A3F] mx-auto mb-4 rounded-full" />
+          <p className="font-['Cormorant_Garamond'] text-lg sm:text-2xl italic text-[#526071] max-w-2xl mx-auto">
+            Traditional Central Travancore recipes crafted with cold-pressed oils, slow-fire dum pots, and hand-selected high-range spices.
           </p>
 
-          {/* Category Filter Pills with Horizontal Swipe */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 -mx-4 sm:mx-auto sm:flex-wrap sm:justify-center justify-start mt-6 sm:mt-8">
+          {/* Category Tabs */}
+          <div className="flex items-center justify-center gap-2 flex-wrap mt-6 sm:mt-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shrink-0 whitespace-nowrap ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-[#DFCA96] to-[#C5A869] text-[#070A09] font-bold shadow-[0_0_15px_rgba(197,168,105,0.3)] scale-105'
-                    : 'bg-[#0D1412] text-[#CBD5D0] hover:text-[#C5A869] hover:bg-[#121C18] border border-[#C5A869]/20'
+                    ? 'bg-gold-gradient text-[#0F172A] font-bold shadow-sm'
+                    : 'bg-white text-[#526071] hover:text-[#0F172A] hover:bg-[#F7F4EE] border border-[#EADFC7]'
                 }`}
               >
                 {cat}
@@ -62,110 +53,91 @@ export default function FoodShowcase({ onSelectImage, onOpenChatbot }) {
           </div>
         </div>
 
-        {/* Editorial Magazine Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Food Items Grid (4 columns on desktop, 2 on tablet, 1 on mobile) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredItems.map((dish) => (
-            <article
+            <div
               key={dish.id}
-              className="bg-[#0D1412] rounded-xl overflow-hidden border border-[#C5A869]/20 hover:border-[#C5A869] shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] transition-all duration-300 flex flex-col group"
+              className="bg-white rounded-2xl overflow-hidden border border-[#EADFC7] hover:border-[#C59A3F] shadow-xs hover:shadow-royal-hover transition-all duration-300 flex flex-col group"
             >
-              {/* Dish Visual Banner */}
+              {/* Dish Visual */}
               <div 
-                className="relative h-56 sm:h-64 overflow-hidden cursor-pointer"
-                onClick={() => onSelectImage({
+                className="relative h-48 overflow-hidden cursor-pointer"
+                onClick={() => onSelectImage && onSelectImage({
                   title: dish.name,
-                  category: dish.category,
-                  description: dish.description,
                   image: dish.image,
-                  location: "Royal Prince Kitchen, Pala"
+                  category: dish.category,
+                  description: dish.description
                 })}
               >
                 <img
                   src={dish.image}
                   alt={dish.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1412] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                 
-                {/* Dietary Badge */}
-                <div className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded bg-[#070A09]/90 border border-[#C5A869]/40 text-[#E8D5A3] text-[10px] font-semibold uppercase tracking-wider backdrop-blur-xs">
+                {/* Type Badge */}
+                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white/95 text-[#0F172A] font-bold text-[9px] tracking-wider uppercase border border-[#EADFC7] shadow-xs">
                   {dish.type}
                 </div>
 
-                {/* Category Pill */}
-                <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded bg-black/75 text-[#C5A869] text-[10px] font-medium tracking-wide backdrop-blur-xs border border-[#C5A869]/20">
-                  {dish.category}
-                </div>
-
-                {/* Click to expand pill */}
-                <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#C5A869] text-[#070A09] text-[10px] font-bold px-2.5 py-1 rounded shadow">
-                  View Large Photo
+                {/* Quick Preview Icon */}
+                <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                  <Eye className="w-3.5 h-3.5 text-[#0F172A]" />
                 </div>
               </div>
 
-              {/* Editorial Description */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              {/* Dish Details */}
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-['Cinzel'] text-lg font-bold text-[#FDFBF7] group-hover:text-[#E8D5A3] transition-colors mb-2 leading-snug">
+                  <span className="text-[10px] text-[#9E7628] font-bold uppercase tracking-wider block mb-1">
+                    {dish.category}
+                  </span>
+                  <h3 className="font-['Cinzel'] text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#9E7628] transition-colors mb-2 leading-snug">
                     {dish.name}
                   </h3>
-
-                  <p className="text-xs text-[#CBD5D0] leading-relaxed mb-4 font-normal">
+                  <p className="text-xs text-[#526071] leading-relaxed line-clamp-3 mb-3">
                     {dish.description}
                   </p>
-
-                  {/* Chef's Signature Note */}
-                  <div className="bg-[#070A09] p-3.5 rounded-lg border-l-2 border-[#C5A869] mb-4 border-y border-r border-[#C5A869]/10">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#E8D5A3] block mb-0.5">
-                      Johnykutty P.V. Heritage Standard
-                    </span>
-                    <p className="text-[11px] text-[#8A9C94] italic">
-                      &ldquo;{dish.chefNote}&rdquo;
-                    </p>
-                  </div>
                 </div>
 
-                {/* Dish Inquire CTA */}
-                <div className="pt-2 border-t border-[#C5A869]/20 flex items-center justify-between">
+                {/* Chef's Note + Action */}
+                <div>
+                  <div className="p-2 rounded-lg bg-[#FCF8EE] border border-[#EADFC7]/60 text-[11px] text-[#785918] mb-3 leading-snug">
+                    <span className="font-bold">Chef&apos;s Touch:</span> {dish.chefNote}
+                  </div>
+
                   <button
                     onClick={() => handleDishInquiry(dish)}
-                    className="text-xs font-bold text-[#E8D5A3] hover:text-[#FDFBF7] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="w-full py-2 px-3 rounded-xl bg-[#F7F4EE] hover:bg-[#10B981]/15 text-[#0F172A] hover:text-[#047857] border border-[#EADFC7] hover:border-[#10B981]/30 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                    <span>Inquire this Dish</span>
+                    <MessageCircle className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Enquire Menu</span>
                   </button>
-
-                  <span className="text-[10px] uppercase tracking-widest text-[#8A9C94] font-semibold">
-                    Thermal Van Dispatched
-                  </span>
                 </div>
               </div>
-            </article>
+            </div>
           ))}
         </div>
 
-        {/* Magazine Feature Box */}
-        <div className="mt-16 bg-[#0D1412] text-[#FDFBF7] rounded-xl p-8 sm:p-10 border border-[#C5A869]/30 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="max-w-2xl text-center lg:text-left">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#C5A869] font-bold block mb-2">
-              Bespoke Menu Planning
-            </span>
-            <h3 className="font-['Cinzel'] text-2xl sm:text-3xl font-bold mb-3 text-[#FDFBF7]">
-              Personal Menu Tasting &amp; Consultation Sessions
+        {/* Bottom Navigation Banner */}
+        <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-2xl bg-white border border-[#EADFC7] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
+          <div>
+            <h3 className="font-['Cinzel'] text-base sm:text-lg font-bold text-[#0F172A]">
+              Eager to See Our Celebration Presentations?
             </h3>
-            <p className="text-xs sm:text-sm text-[#8A9C94] leading-relaxed">
-              We understand the gravity of wedding dining in Kerala. Founder Johnykutty P.V. and our executive culinary team in Pala sit down with you to finalize every single starter, curry, dessert, and serving cadence.
+            <p className="text-xs sm:text-sm text-[#526071] mt-0.5">
+              Explore actual wedding receptions, live plantain leaf sadhyas, and grand setups across Kerala.
             </p>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <button
-              onClick={onOpenChatbot}
-              className="px-6 py-3.5 bg-gradient-to-r from-[#FFF1CD] via-[#DFCA96] to-[#C5A869] text-[#070A09] text-xs font-bold uppercase tracking-wider rounded shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer text-center"
-            >
-              Request Full Menu PDF on WhatsApp
-            </button>
-          </div>
+          <button
+            onClick={() => onNavigate ? onNavigate('gallery') : null}
+            className="px-6 py-2.5 rounded-xl bg-gold-gradient text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm hover:brightness-105 active:scale-98 transition-all shrink-0 cursor-pointer flex items-center gap-1.5"
+          >
+            <span>View Event Gallery</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#0F172A]" />
+          </button>
         </div>
       </div>
     </section>
