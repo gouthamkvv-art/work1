@@ -47,17 +47,17 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
 
   return (
     <>
-      {/* Top Royal Utility Bar */}
-      <div className="bg-[#0B1325] text-[#E2E8F0] text-[11px] py-2 px-4 border-b border-[#C59A3F]/30 transition-all">
+      {/* Top Royal Utility Bar - Matte Black with Royal Gold Accents */}
+      <div className="bg-[#101010] text-[#F3E8D0] text-[11px] py-2 px-4 border-b border-[#C6A15B]/25 transition-all">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-3">
           <div className="flex items-center gap-3 sm:gap-6 truncate">
             <span className="flex items-center gap-1.5 text-[#DFBE6F] font-semibold tracking-wider shrink-0 text-[10px] sm:text-xs">
-              <MapPin className="w-3.5 h-3.5 text-[#C59A3F]" />
+              <MapPin className="w-3.5 h-3.5 text-[#C6A15B]" />
               <span>PALA | KOTTAYAM | KERALA</span>
             </span>
-            <span className="hidden md:inline-block text-[#C59A3F]/40">•</span>
-            <span className="hidden md:flex items-center gap-1.5 text-[#94A3B8]">
-              <Clock className="w-3.5 h-3.5 text-[#C59A3F]" />
+            <span className="hidden md:inline-block text-[#C6A15B]/40">•</span>
+            <span className="hidden md:flex items-center gap-1.5 text-[#F3E8D0]/70">
+              <Clock className="w-3.5 h-3.5 text-[#C6A15B]" />
               <span>{COMPANY_INFO.hours}</span>
             </span>
           </div>
@@ -67,31 +67,31 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
               href={COMPANY_INFO.instagramUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 text-[#CBD5E1] hover:text-[#DFBE6F] transition-colors"
+              className="hidden sm:flex items-center gap-1.5 text-[#F3E8D0]/80 hover:text-[#C6A15B] transition-colors"
             >
-              <Instagram className="w-3.5 h-3.5 text-[#C59A3F]" />
+              <Instagram className="w-3.5 h-3.5 text-[#C6A15B]" />
               <span className="font-medium text-[11px]">@royalprincecatering</span>
             </a>
-            <span className="hidden sm:inline text-[#C59A3F]/40">•</span>
+            <span className="hidden sm:inline text-[#C6A15B]/40">•</span>
             <a 
               href={`https://wa.me/${COMPANY_INFO.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#10B981] hover:text-[#34D399] transition-colors font-bold text-[11px]"
+              className="flex items-center gap-1.5 text-[#34D399] hover:text-[#10B981] transition-colors font-bold text-[11px]"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-[#10B981]" />
-              <span>{COMPANY_INFO.phonePrimary}</span>
+              <span className="text-[#F3E8D0] font-semibold">{COMPANY_INFO.phonePrimary}</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Sticky Navbar with 8 Screen Tabs */}
+      {/* Main Sticky Navbar - Matte Black with Royal Gold Borders & Lighting */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.06)] border-b border-[#EADFC7] py-2.5 sm:py-3' 
-            : 'bg-[#FBF9F5]/90 backdrop-blur-sm border-b border-[#EADFC7]/80 py-3 sm:py-3.5'
+            ? 'bg-[#101010]/95 backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.6)] border-b border-[#C6A15B]/35 py-2.5 sm:py-3' 
+            : 'bg-[#101010]/90 backdrop-blur-sm border-b border-[#C6A15B]/25 py-3 sm:py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,23 +99,24 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
             {/* Brand Logo - Clicking leads to Home screen */}
             <button 
               onClick={() => handleNavClick('home')}
-              className="flex items-center gap-3 text-left cursor-pointer"
+              className="flex items-center gap-3 text-left cursor-pointer focus:outline-none"
+              aria-label="Royal Prince Home"
             >
-              <BrandLogo className="w-9 h-9 sm:w-11 sm:h-11" lightVariant={false} />
+              <BrandLogo className="w-9 h-9 sm:w-11 sm:h-11" lightVariant={true} />
             </button>
 
             {/* Desktop 8-Screen Tabs */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1 bg-[#292521]/60 p-1 rounded-full border border-[#C6A15B]/20 backdrop-blur-xs">
               {navLinks.map((link) => {
                 const isActive = currentScreen === link.id;
                 return (
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? 'bg-gold-gradient text-[#0F172A] font-bold shadow-xs'
-                        : 'text-[#475569] hover:text-[#0F172A] hover:bg-[#F7F4EE]'
+                        ? 'bg-gold-gradient text-[#101010] font-bold shadow-[0_2px_12px_rgba(198,161,91,0.35)]'
+                        : 'text-[#F3E8D0]/80 hover:text-[#DFBE6F] hover:bg-[#292521]'
                     }`}
                   >
                     {link.name}
@@ -125,67 +126,67 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
             </nav>
 
             {/* Right Action Buttons */}
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2.5">
               <a
                 href={`tel:${COMPANY_INFO.phonePrimary}`}
-                className="px-3 py-1.5 rounded-xl text-xs font-semibold text-[#0F172A] border border-[#CBD5E1] hover:border-[#C59A3F] hover:bg-[#F7F4EE] transition-all flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-xl text-xs font-semibold text-[#F3E8D0] bg-[#292521] border border-[#C6A15B]/40 hover:border-[#C6A15B] hover:text-[#C6A15B] transition-all flex items-center gap-1.5 shadow-sm"
               >
-                <Phone className="w-3.5 h-3.5 text-[#C59A3F]" />
+                <Phone className="w-3.5 h-3.5 text-[#C6A15B]" />
                 <span className="hidden xl:inline">Call Us</span>
               </a>
 
               <button
                 onClick={onOpenQuoteModal}
-                className="px-4 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider text-[#0F172A] bg-gold-gradient hover:brightness-105 active:scale-98 transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+                className="btn-royal-gold px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-[#101010] flex items-center gap-1.5 cursor-pointer"
               >
-                <Calendar className="w-3.5 h-3.5" />
+                <Calendar className="w-3.5 h-3.5 text-[#101010]" />
                 <span>Get Quote</span>
               </button>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex sm:hidden items-center gap-1.5">
+            {/* Mobile Hamburger & Quick Quote */}
+            <div className="flex sm:hidden items-center gap-2">
               <button
                 onClick={onOpenQuoteModal}
-                className="px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#0F172A] bg-gold-gradient shadow-xs"
+                className="btn-royal-gold px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#101010]"
               >
                 Quote
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle Navigation Menu"
-                className="p-2 rounded-xl text-[#0F172A] hover:bg-[#F7F4EE] border border-[#EADFC7] transition-colors"
+                className="p-2 rounded-xl bg-[#292521] text-[#F3E8D0] hover:text-[#C6A15B] border border-[#C6A15B]/40 transition-colors"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5 text-[#C59A3F]" /> : <Menu className="w-5 h-5 text-[#0F172A]" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 text-[#C6A15B]" /> : <Menu className="w-5 h-5 text-[#F3E8D0]" />}
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (8 Screens) */}
+      {/* Mobile Drawer Menu (8 Screens) - Dark Espresso & Matte Black */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end sm:hidden animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex flex-col justify-end sm:hidden animate-fadeIn"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div 
-            className="bg-white rounded-t-3xl p-6 border-t border-[#EADFC7] shadow-2xl max-h-[85vh] overflow-y-auto"
+            className="bg-[#101010] rounded-t-3xl p-6 border-t border-[#C6A15B]/50 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-4 border-b border-[#F0E9DA] mb-4">
-              <BrandLogo className="w-8 h-8" showText={true} lightVariant={false} />
+            <div className="flex items-center justify-between pb-4 border-b border-[#C6A15B]/25 mb-4">
+              <BrandLogo className="w-8 h-8" showText={true} lightVariant={true} />
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 rounded-full bg-[#F7F4EE] text-[#475569]"
+                className="p-1.5 rounded-full bg-[#292521] text-[#F3E8D0] border border-[#C6A15B]/30"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-[#C6A15B]" />
               </button>
             </div>
 
-            <div className="flex flex-col gap-1 mb-6">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#9E7628] px-2 mb-1">
-                Explore Screens
+            <div className="flex flex-col gap-1.5 mb-6">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#C6A15B] px-2 mb-1">
+                Explore Royal Prince Screens
               </span>
               {navLinks.map((link, idx) => {
                 const isActive = currentScreen === link.id;
@@ -193,30 +194,30 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className={`flex items-center justify-between p-3 rounded-xl text-left font-semibold text-xs sm:text-sm transition-all ${
+                    className={`flex items-center justify-between p-3 rounded-xl text-left font-semibold text-xs transition-all ${
                       isActive 
-                        ? 'bg-gold-gradient text-[#0F172A] font-bold shadow-xs' 
-                        : 'text-[#1E293B] hover:bg-[#F7F4EE]'
+                        ? 'bg-gold-gradient text-[#101010] font-bold shadow-md' 
+                        : 'text-[#F3E8D0] hover:bg-[#292521] hover:text-[#C6A15B] border border-transparent hover:border-[#C6A15B]/20'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${isActive ? 'bg-black/10' : 'bg-slate-100 text-slate-500'}`}>
+                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${isActive ? 'bg-[#101010]/20 text-[#101010]' : 'bg-[#292521] text-[#C6A15B] border border-[#C6A15B]/30'}`}>
                         0{idx + 1}
                       </span>
                       <span>{link.name}</span>
                     </div>
-                    <ChevronRight className={`w-4 h-4 ${isActive ? 'text-[#0F172A]' : 'text-[#94A3B8]'}`} />
+                    <ChevronRight className={`w-4 h-4 ${isActive ? 'text-[#101010]' : 'text-[#C6A15B]'}`} />
                   </button>
                 );
               })}
             </div>
 
-            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#F0E9DA]">
+            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#C6A15B]/25">
               <a
                 href={`tel:${COMPANY_INFO.phonePrimary}`}
-                className="p-3 rounded-xl border border-[#CBD5E1] text-[#0F172A] font-bold text-xs flex items-center justify-center gap-2"
+                className="p-3 rounded-xl bg-[#292521] border border-[#C6A15B]/40 text-[#F3E8D0] font-bold text-xs flex items-center justify-center gap-2"
               >
-                <Phone className="w-4 h-4 text-[#C59A3F]" />
+                <Phone className="w-4 h-4 text-[#C6A15B]" />
                 <span>Call Us</span>
               </a>
               <button
@@ -224,9 +225,9 @@ export default function Navbar({ currentScreen, onNavigate, onOpenQuoteModal, on
                   setMobileMenuOpen(false);
                   onOpenQuoteModal();
                 }}
-                className="p-3 rounded-xl bg-gold-gradient text-[#0F172A] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs"
+                className="p-3 rounded-xl bg-gold-gradient text-[#101010] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 text-[#101010]" />
                 <span>Quotation</span>
               </button>
             </div>

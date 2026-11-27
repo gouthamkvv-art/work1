@@ -62,7 +62,7 @@ export default function App() {
   const nextScreen = currentIndex < SCREENS.length - 1 ? SCREENS[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] text-[#1E293B] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#C59A3F] selection:text-white pb-16 md:pb-0">
+    <div className="min-h-screen bg-[#FAF7F0] text-[#292521] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#C6A15B] selection:text-[#101010] pb-16 md:pb-0">
       {/* 1. Sticky Navigation with Screen Tabs */}
       <Navbar
         currentScreen={currentScreen}
@@ -132,18 +132,18 @@ export default function App() {
           )}
         </div>
 
-        {/* Screen Bottom Navigation Bar (Previous Screen / Next Screen) */}
-        <div className="bg-[#FAF7F0] border-t border-b border-[#EADFC7] py-4 px-4 sm:px-8">
+        {/* Screen Bottom Navigation Bar (Previous Screen / Next Screen) - Matte Black #101010 */}
+        <div className="bg-[#101010] border-t border-b border-[#C6A15B]/30 py-4 px-4 sm:px-8 shadow-inner">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
             {/* Previous Button */}
             {prevScreen ? (
               <button
                 onClick={() => navigateTo(prevScreen.id)}
-                className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-white border border-[#EADFC7] hover:border-[#C59A3F] text-[#0F172A] text-xs font-bold transition-all shadow-xs cursor-pointer group"
+                className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-[#292521] border border-[#C6A15B]/40 hover:border-[#C6A15B] text-[#F3E8D0] text-xs font-bold transition-all shadow-sm cursor-pointer group"
               >
-                <ArrowLeft className="w-4 h-4 text-[#C59A3F] group-hover:-translate-x-0.5 transition-transform" />
+                <ArrowLeft className="w-4 h-4 text-[#C6A15B] group-hover:-translate-x-0.5 transition-transform" />
                 <div className="text-left hidden sm:block">
-                  <span className="text-[10px] text-[#64748B] block font-normal">Previous</span>
+                  <span className="text-[10px] text-[#F3E8D0]/60 block font-normal">Previous</span>
                   <span>{prevScreen.label}</span>
                 </div>
                 <span className="sm:hidden">Back</span>
@@ -154,18 +154,18 @@ export default function App() {
 
             {/* Screen Position Pill */}
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="text-xs font-semibold text-[#64748B]">
-                Screen <span className="text-[#0F172A] font-bold">{currentIndex + 1}</span> of {SCREENS.length}
+              <span className="text-xs font-semibold text-[#F3E8D0]/70">
+                Screen <span className="text-[#DFBE6F] font-bold">{currentIndex + 1}</span> of {SCREENS.length}
               </span>
-              <div className="hidden md:flex items-center gap-1 ml-2">
+              <div className="hidden md:flex items-center gap-1.5 ml-2">
                 {SCREENS.map((s, idx) => (
                   <button
                     key={s.id}
                     onClick={() => navigateTo(s.id)}
                     className={`h-1.5 rounded-full transition-all cursor-pointer ${
                       idx === currentIndex 
-                        ? 'w-6 bg-[#C59A3F]' 
-                        : 'w-1.5 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                        ? 'w-6 bg-[#C6A15B] shadow-[0_0_8px_rgba(198,161,91,0.5)]' 
+                        : 'w-1.5 bg-[#3D3732] hover:bg-[#C6A15B]/60'
                     }`}
                     title={s.label}
                   />
@@ -177,22 +177,22 @@ export default function App() {
             {nextScreen ? (
               <button
                 onClick={() => navigateTo(nextScreen.id)}
-                className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-gold-gradient text-[#0F172A] text-xs font-bold transition-all shadow-xs hover:brightness-105 active:scale-98 cursor-pointer group"
+                className="btn-royal-gold flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-[#101010] text-xs font-bold transition-all shadow-gold-button cursor-pointer group"
               >
                 <div className="text-right hidden sm:block">
-                  <span className="text-[10px] text-[#0F172A]/70 block font-normal">Next Screen</span>
+                  <span className="text-[10px] text-[#101010]/70 block font-normal">Next Screen</span>
                   <span>{nextScreen.label}</span>
                 </div>
                 <span className="sm:hidden">Next</span>
-                <ArrowRight className="w-4 h-4 text-[#0F172A] group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#101010] group-hover:translate-x-0.5 transition-transform" />
               </button>
             ) : (
               <button
                 onClick={() => navigateTo('home')}
-                className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-white border border-[#EADFC7] hover:border-[#C59A3F] text-[#0F172A] text-xs font-bold transition-all shadow-xs cursor-pointer"
+                className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-[#292521] border border-[#C6A15B]/40 hover:border-[#C6A15B] text-[#F3E8D0] text-xs font-bold transition-all shadow-sm cursor-pointer"
               >
                 <span>Back to Home</span>
-                <ArrowRight className="w-4 h-4 text-[#C59A3F]" />
+                <ArrowRight className="w-4 h-4 text-[#C6A15B]" />
               </button>
             )}
           </div>

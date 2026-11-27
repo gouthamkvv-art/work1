@@ -121,7 +121,7 @@ export const SERVICES = [
       "Live welcome beverage & starter stalls",
       "Uniformed hospitality stewards & captains"
     ],
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80",
+    image: "/reference-banquet-gold.jpg",
     whatsappText: "Hello Royal Prince Caters! I would like to enquire about Grand Wedding Catering services."
   },
   {
@@ -151,7 +151,7 @@ export const SERVICES = [
       "Exotic salads, soups & finger foods",
       "Lavish dessert fountain & fruit cascade"
     ],
-    image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80",
+    image: "/reference-grand-ballroom.jpg",
     whatsappText: "Hello Royal Prince Caters! I would like to enquire about Reception & Evening Feast catering."
   },
   {
@@ -226,7 +226,7 @@ export const SERVICES = [
       "Chandelier lighting, LED backdrops & sound setup",
       "Dedicated on-ground event coordinator in Pala/Kottayam"
     ],
-    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80",
+    image: "/reference-table-styling.jpg",
     whatsappText: "Hello Royal Prince Caters! I would like to enquire about Stage Decor and Event Management."
   }
 ];
@@ -312,8 +312,8 @@ export const GALLERY_ITEMS = [
     title: "Grand Wedding Banquet Setup",
     category: "Wedding Catering",
     location: "Pala, Kottayam",
-    description: "Lavish multi-course buffet layout with champagne gold runners and warm banquet lighting.",
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80",
+    description: "Lavish candlelit banquet layout with gold sequin runners, dark linens, and crystal chandeliers.",
+    image: "/reference-banquet-gold.jpg",
     instagramPostUrl: "https://www.instagram.com/royalprincecatering/"
   },
   {
@@ -345,11 +345,20 @@ export const GALLERY_ITEMS = [
   },
   {
     id: "gal-4",
-    title: "Floral Stage & Chandelier Decor",
+    title: "Palatial Grand Ballroom Reception",
     category: "Event Management",
     location: "Ettumanoor, Kottayam",
-    description: "Bespoke floral wedding backdrop with crystal chandeliers and royal seating.",
-    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=80",
+    description: "Opulent black and champagne ballroom decor with gold charger plates and crystal candelabras.",
+    image: "/reference-grand-ballroom.jpg",
+    instagramPostUrl: "https://www.instagram.com/royalprincecatering/"
+  },
+  {
+    id: "gal-8",
+    title: "VIP Glass Banquets & Gold Chiavari Styling",
+    category: "Event Management",
+    location: "Kottayam District",
+    description: "Refined table couture with gold sunburst napkin rings, black tapered candles & white floral centerpieces.",
+    image: "/reference-table-styling.jpg",
     instagramPostUrl: "https://www.instagram.com/royalprincecatering/"
   },
   {
